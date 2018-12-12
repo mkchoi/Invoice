@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class KCInvoiceViewController : UIViewController {
+class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var invoiceNumber : UITextField!
     @IBOutlet weak var dateOfIssue : UITextField!
@@ -17,10 +17,32 @@ class KCInvoiceViewController : UIViewController {
     @IBOutlet weak var billedToAddress : UITextView!
     @IBOutlet weak var invoiceTotal : UILabel!
     @IBOutlet weak var discount : UITextField!
-
+    
     var selectedId : Int32 = 0
+    var customerArray : [String] = []
+    var customerAddressArray : [String] = []
     
     let dbInstance = KCDBUtility()
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return customerArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return customerArray[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       
+        self.billedTo.text = self.customerArray[row]
+        self.billedToAddress.text = self.customerAddressArray[row]
+        self.billedTo.endEditing(true)
+    
+    }
     
     @IBAction func printButtonTapped(_ sender: Any) {
         
@@ -95,6 +117,30 @@ class KCInvoiceViewController : UIViewController {
     override func viewDidLoad() {
         
         let util = KCUtility()
+        
+        let queryCustomerSql = "select id, customer_name, address from customer_table"
+        print("query customer_table")
+        
+        if let queryCustomerResult = dbInstance.querySQL(sql: queryCustomerSql) {
+            
+            for row in queryCustomerResult {
+                if let num = row["id"] {
+                    print("id=\(num)")
+                    
+                    customerArray.append((row["customer_name"] as? String)!)
+                    customerAddressArray.append((row["address"] as? String)!)
+                    
+                    
+                }
+                
+            }
+        }
+        
+        let billedToPickerView = UIPickerView()
+
+        billedToPickerView.delegate = self
+        billedToPickerView.dataSource = self
+        billedTo.inputView = billedToPickerView
         
         if (self.selectedId > 0) {
             

@@ -13,6 +13,9 @@ class KCInvoiceTableViewController : UITableViewController {
     
     @IBOutlet weak var editBarButton : UIBarButtonItem!
 
+    var selectedId : Int32 = 0
+    var invoiceView : KCInvoiceViewController?
+
     var invoiceArray: [String] = []
     var idArray: [Int32] = []
     
@@ -64,6 +67,20 @@ class KCInvoiceTableViewController : UITableViewController {
         cell.textLabel?.text = invoiceArray[indexPath.row]
         
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedId = idArray[indexPath.row]
+        self.performSegue(withIdentifier: "modifyInvoiceSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "modifyInvoiceSegue") {
+            if (self.selectedId > 0) {
+                invoiceView = segue.destination as? KCInvoiceViewController
+                invoiceView?.selectedId = self.selectedId
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
