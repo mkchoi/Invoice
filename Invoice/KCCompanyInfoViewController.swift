@@ -62,13 +62,14 @@ class KCCompanyInfoViewController : UIViewController {
             print("insert company info=\(result)")
             
         }
-        self.dismiss(animated:false, completion: nil)
+    
+        navigationController?.popViewController(animated: true)
         
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         
-        self.dismiss(animated:false, completion: nil)
+        navigationController?.popViewController(animated: true)
         
     }
     

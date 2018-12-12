@@ -23,7 +23,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
     var customerAddressArray : [String] = []
     
     let dbInstance = KCDBUtility()
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -140,7 +140,9 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
 
         billedToPickerView.delegate = self
         billedToPickerView.dataSource = self
-        billedTo.inputView = billedToPickerView
+        if (customerArray.count > 0) {
+            billedTo.inputView = billedToPickerView
+        }
         
         if (self.selectedId > 0) {
             
@@ -175,9 +177,12 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                 for row in queryResult {
                     if let numOfOrder = row["numOfOrder"] {
                         print("numOfOrder=\(numOfOrder)")
+    
                         invoiceNumber.text = util.getInvoiceNumber(num: String(describing: numOfOrder))
                     }
                 }
+            } else {
+                invoiceNumber.text = util.getInvoiceNumber(num: "1")
             }
             
         }

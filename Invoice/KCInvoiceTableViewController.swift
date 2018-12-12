@@ -87,7 +87,7 @@ class KCInvoiceTableViewController : UITableViewController {
         
         invoiceArray.removeAll()
         
-        let querySql = "select id, billed_to, invoice_number, date_of_issue, invoice_total from invoice_table"
+        let querySql = "select id, billed_to, invoice_number, date_of_issue, invoice_total from invoice_table order by invoice_number desc"
         print("query invoice_table")
         
         if let queryResult = dbInstance.querySQL(sql: querySql) {
