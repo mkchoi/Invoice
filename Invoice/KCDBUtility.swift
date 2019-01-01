@@ -16,7 +16,7 @@ class KCDBUtility {
     var instance : KCDBUtility? = nil;
     var dbName : String = "invoice";
     var dbContent : String = "Initial DB";
-    var dbVersion = 5;
+    var dbVersion = 7;
     var db:OpaquePointer? = nil;
 
     var createDbVerTable = "CREATE TABLE IF NOT EXISTS dbver_table "

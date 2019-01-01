@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var invoiceNumber : UITextField!
     @IBOutlet weak var dateOfIssue : UITextField!
@@ -17,13 +17,59 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var billedToAddress : UITextView!
     @IBOutlet weak var invoiceTotal : UILabel!
     @IBOutlet weak var discount : UITextField!
+    @IBOutlet weak var tableView : UITableView!
     
     var selectedId : Int32 = 0
     var customerArray : [String] = []
     var customerAddressArray : [String] = []
     
+    var itemArray: [String] = []
+    var qtyArray: [Int32] = []
+    var idArray: [Int32] = []
+    
     let dbInstance = KCDBUtility()
-
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            let deleteSql = "delete from invoice_item_table where id=\(idArray[indexPath.row])"
+            let result = dbInstance.executeSQL(sql: deleteSql)
+            print("delete item info=\(result)")
+            
+            if (result) {
+                itemArray.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if (self.tableView.isEditing) {
+            return UITableViewCellEditingStyle.delete
+        }
+        return UITableViewCellEditingStyle.none
+    }
+    
+    func tableView(_ tableView : UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemTableCell", for: indexPath)
+        
+        cell.textLabel?.text = itemArray[indexPath.row]
+        
+        return cell
+    }
+    
+    /*
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedId = idArray[indexPath.row]
+        self.performSegue(withIdentifier: "modifyProductSegue", sender: self)
+    }
+    */
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -136,6 +182,32 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             }
         }
         
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        itemArray.removeAll()
+        qtyArray.removeAll()
+        idArray.removeAll()
+        
+        let querySql = "select id, item_desc, qty from invoice_item_table where invoice_id=\(self.selectedId)"
+        print("query invoice_item_table")
+        
+        if let queryResult = dbInstance.querySQL(sql: querySql) {
+            
+            for row in queryResult {
+                if let name = row["item_desc"] {
+                    print("item_desc=\(name)")
+                    idArray.append(row["id"] as! Int32)
+                    itemArray.append(row["item_desc"] as! String)
+                    qtyArray.append(row["qty"] as! Int32)
+                }
+            }
+        }
+        
+        self.tableView.reloadData()
+        
+        print("query end")
+        
         let billedToPickerView = UIPickerView()
 
         billedToPickerView.delegate = self
@@ -185,6 +257,15 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                 invoiceNumber.text = util.getInvoiceNumber(num: "1")
             }
             
+            var insertSql = "insert into invoice_table ("
+            insertSql += "invoice_number, date_of_issue, invoice_total, discount, create_time) values ('"
+            insertSql += (invoiceNumber.text)! + "', '" + (dateOfIssue.text)! + "', 0, 0, '"
+            insertSql += util.getTodayStr() + "')"
+            
+            print("insertSql=" + insertSql)
+            
+            let result = dbInstance.executeSQL(sql: insertSql)
+            print("insert invoice info=\(result)")
         }
     }
 }

@@ -86,6 +86,7 @@ class KCProductTableViewController : UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         productArray.removeAll()
+        idArray.removeAll()
         
         let querySql = "select id, item_code, item_desc from product_table"
         print("query product_table")

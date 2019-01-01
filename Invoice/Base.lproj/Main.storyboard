@@ -135,6 +135,16 @@
                                 <rect key="frame" x="38" y="364" width="947" height="268"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="itemTableCell" id="1jg-75-D9y">
+                                        <rect key="frame" x="0.0" y="28" width="947" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1jg-75-D9y" id="jj0-pE-42R">
+                                            <rect key="frame" x="0.0" y="0.0" width="947" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqb-Om-vUA">
                                 <rect key="frame" x="38" y="308" width="100" height="48"/>
@@ -262,6 +272,7 @@
                         <outlet property="discount" destination="VFS-Wm-qSW" id="HI3-ft-65J"/>
                         <outlet property="invoiceNumber" destination="QJh-Fl-LKu" id="BDC-vB-En1"/>
                         <outlet property="invoiceTotal" destination="Gm7-cR-R3f" id="NyB-Ud-UTm"/>
+                        <outlet property="tableView" destination="4NE-XR-5UE" id="9Rq-32-k6j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpX-Ad-DVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
