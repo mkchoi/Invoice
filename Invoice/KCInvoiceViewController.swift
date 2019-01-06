@@ -18,6 +18,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var invoiceTotal : UILabel!
     @IBOutlet weak var discount : UITextField!
     @IBOutlet weak var tableView : UITableView!
+    @IBOutlet weak var deleteButton : UIButton!
     
     var selectedId : Int32 = 0
     var customerArray : [String] = []
@@ -26,6 +27,8 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
     var itemArray: [String] = []
     var qtyArray: [Int32] = []
     var idArray: [Int32] = []
+    
+    var invoiceItemView : KCInvoiceItemViewController?
     
     let dbInstance = KCDBUtility()
     
@@ -88,6 +91,19 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         self.billedToAddress.text = self.customerAddressArray[row]
         self.billedTo.endEditing(true)
     
+    }
+    
+    @IBAction func deleteItemButtonTapped(_ sender: Any) {
+        if(self.tableView.isEditing == true)
+        {
+            self.tableView.isEditing = false
+            self.deleteButton?.setTitle("刪除貨品", for: UIControlState.normal)
+        }
+        else
+        {
+            self.tableView.isEditing = true
+            self.deleteButton?.setTitle("完成刪除", for: UIControlState.normal)
+        }
     }
     
     @IBAction func printButtonTapped(_ sender: Any) {
@@ -160,7 +176,34 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         
     }
     
+    @objc private func invoiceItemReload() {
+        print("invoiceItemReload")
+        
+        itemArray.removeAll()
+        qtyArray.removeAll()
+        idArray.removeAll()
+        
+        let querySql = "select id, item_desc, qty from invoice_item_table where invoice_id=\(self.selectedId)"
+        print("query invoice_item_table")
+        
+        if let queryResult = dbInstance.querySQL(sql: querySql) {
+            
+            for row in queryResult {
+                if let name = row["item_desc"] {
+                    print("item_desc=\(name)")
+                    idArray.append(row["id"] as! Int32)
+                    itemArray.append(row["item_desc"] as! String)
+                    qtyArray.append(row["qty"] as! Int32)
+                }
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(invoiceItemReload), name: NSNotification.Name("invoiceItemReload"), object: nil)
         
         let util = KCUtility()
         
@@ -266,6 +309,15 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             
             let result = dbInstance.executeSQL(sql: insertSql)
             print("insert invoice info=\(result)")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "invoiceItemSegue") {
+            if (self.selectedId > 0) {
+                invoiceItemView = segue.destination as? KCInvoiceItemViewController
+                invoiceItemView?.selectedId = self.selectedId
+            }
         }
     }
 }

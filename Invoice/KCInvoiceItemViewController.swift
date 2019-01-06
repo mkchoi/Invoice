@@ -124,6 +124,8 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
             return
         }
         
+        print("selectedId=\(self.selectedId)")
+        
         if (self.selectedId > 0) {
             
             var insertSql = "insert into invoice_item_table (invoice_id, item_code, item_desc, unit_price, qty, amount, create_time) values "
@@ -136,6 +138,7 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
             print("insert invoice item=\(result)")
         } 
         
+        NotificationCenter.default.post(name: NSNotification.Name("invoiceItemReload"), object: nil)
         self.dismiss(animated: true)
         
     }

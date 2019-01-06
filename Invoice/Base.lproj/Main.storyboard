@@ -152,7 +152,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="加入貨品"/>
                                 <connections>
-                                    <segue destination="00D-oj-3LK" kind="presentation" modalPresentationStyle="formSheet" id="zbO-JJ-P3n"/>
+                                    <segue destination="00D-oj-3LK" kind="presentation" identifier="invoiceItemSegue" modalPresentationStyle="formSheet" id="zbO-JJ-P3n"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0t-Mj-mW0">
@@ -160,6 +160,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="刪除貨品"/>
+                                <connections>
+                                    <action selector="deleteItemButtonTapped:" destination="5gZ-0e-RX3" eventType="touchUpInside" id="pZk-MU-eSO"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="發票編號" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXf-D8-fZu">
                                 <rect key="frame" x="315" y="94" width="130" height="30"/>
@@ -269,6 +272,7 @@
                         <outlet property="billedTo" destination="OTD-jR-38r" id="FxD-PV-PqE"/>
                         <outlet property="billedToAddress" destination="LD5-2R-xyE" id="kW3-PO-qG7"/>
                         <outlet property="dateOfIssue" destination="xPC-YF-Bol" id="wI8-zN-UMS"/>
+                        <outlet property="deleteButton" destination="x0t-Mj-mW0" id="7lH-03-0Pc"/>
                         <outlet property="discount" destination="VFS-Wm-qSW" id="HI3-ft-65J"/>
                         <outlet property="invoiceNumber" destination="QJh-Fl-LKu" id="BDC-vB-En1"/>
                         <outlet property="invoiceTotal" destination="Gm7-cR-R3f" id="NyB-Ud-UTm"/>
