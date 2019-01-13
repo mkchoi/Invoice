@@ -17,6 +17,7 @@ class KCProductTableViewController : UITableViewController {
     var productInfoView : KCProductInfoViewController?
     
     var productArray: [String] = []
+    var priceArray: [Double] = []
     var idArray: [Int32] = []
     
     let dbInstance = KCDBUtility()
@@ -66,6 +67,10 @@ class KCProductTableViewController : UITableViewController {
         
         cell.textLabel?.text = productArray[indexPath.row]
         
+        if let label1 = cell.viewWithTag(1) as? UILabel {
+            label1.text = String(describing: priceArray[indexPath.row])
+        }
+        
         return cell
     }
     
@@ -86,9 +91,10 @@ class KCProductTableViewController : UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         productArray.removeAll()
+        priceArray.removeAll()
         idArray.removeAll()
         
-        let querySql = "select id, item_code, item_desc from product_table"
+        let querySql = "select id, item_code, item_desc, unit_price from product_table"
         print("query product_table")
         
         if let queryResult = dbInstance.querySQL(sql: querySql) {
@@ -98,6 +104,7 @@ class KCProductTableViewController : UITableViewController {
                     print("item_code=\(code)")
                     idArray.append(row["id"] as! Int32)
                     productArray.append(row["item_desc"] as! String)
+                    priceArray.append(row["unit_price"] as! Double)
                 }
             }
         }

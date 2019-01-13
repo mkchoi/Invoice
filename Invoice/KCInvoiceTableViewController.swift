@@ -17,6 +17,7 @@ class KCInvoiceTableViewController : UITableViewController {
     var invoiceView : KCInvoiceViewController?
 
     var invoiceArray: [String] = []
+    var billedArray: [String] = []
     var idArray: [Int32] = []
     
     let dbInstance = KCDBUtility()
@@ -66,6 +67,10 @@ class KCInvoiceTableViewController : UITableViewController {
         
         cell.textLabel?.text = invoiceArray[indexPath.row]
         
+        if let label1 = cell.viewWithTag(1) as? UILabel {
+            label1.text = billedArray[indexPath.row]
+        }
+        
         return cell
     }
 
@@ -101,8 +106,10 @@ class KCInvoiceTableViewController : UITableViewController {
                     let dateOfIssue = row["date_of_issue"] as! String
                     let billedTo = row["billed_to"] as! String
                     let invoiceTotal = row["invoice_total"] as! Double
-                    let desc = "\(dateOfIssue) \(invoiceNumber) \(billedTo) $\(invoiceTotal)"
-                    invoiceArray.append(desc)
+                    let invoiceDesc = "\(dateOfIssue)    \(invoiceNumber)"
+                    invoiceArray.append(invoiceDesc)
+                    let billedDesc = "\(billedTo)    $\(invoiceTotal)"
+                    billedArray.append(billedDesc)
                 }
             }
         }

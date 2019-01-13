@@ -186,7 +186,7 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
         itemDescPickerView.delegate = self
         itemDescPickerView.dataSource = self
         if (productDescArray.count > 0) {
-            itemDesc.inputView = itemCodePickerView
+            itemDesc.inputView = itemDescPickerView
         }
     }
     

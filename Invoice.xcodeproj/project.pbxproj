@@ -15,12 +15,30 @@
 		B77E302F21A70A6A003784D9 /* KCCustomerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E302E21A70A6A003784D9 /* KCCustomerTableViewController.swift */; };
 		B77E303121A70A88003784D9 /* KCProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E303021A70A88003784D9 /* KCProductTableViewController.swift */; };
 		B77E303321A70A9E003784D9 /* KCInvoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E303221A70A9E003784D9 /* KCInvoiceTableViewController.swift */; };
+		B782761D21EB9F8000D2A581 /* single_item.html in Resources */ = {isa = PBXBuildFile; fileRef = B782761921EB9F7E00D2A581 /* single_item.html */; };
+		B782761E21EB9F8000D2A581 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B782761A21EB9F7F00D2A581 /* logo.jpg */; };
+		B782761F21EB9F8000D2A581 /* last_item.html in Resources */ = {isa = PBXBuildFile; fileRef = B782761B21EB9F7F00D2A581 /* last_item.html */; };
+		B782762021EB9F8000D2A581 /* invoice.html in Resources */ = {isa = PBXBuildFile; fileRef = B782761C21EB9F8000D2A581 /* invoice.html */; };
 		B79792CF216C4CE700C1E826 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79792CE216C4CE700C1E826 /* AppDelegate.swift */; };
 		B79792D6216C4CE700C1E826 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B79792D4216C4CE700C1E826 /* Main.storyboard */; };
 		B79792D8216C4CE700C1E826 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B79792D7216C4CE700C1E826 /* Assets.xcassets */; };
 		B79792DB216C4CE700C1E826 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B79792D9216C4CE700C1E826 /* LaunchScreen.storyboard */; };
 		B7B3A3D221B021450080EC09 /* KCInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B3A3D121B021450080EC09 /* KCInvoiceViewController.swift */; };
 		B7BA73BC217830D500ABBF2D /* KCUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA73BB217830D500ABBF2D /* KCUtility.swift */; };
+		B7BE5E6621E9BDBA00167D5B /* icon-customer.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E6521E9BDB900167D5B /* icon-customer.png */; };
+		B7BE5E6821E9BDCA00167D5B /* icon-invoice.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E6721E9BDC900167D5B /* icon-invoice.png */; };
+		B7BE5E6A21E9BDDA00167D5B /* icon-setting.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E6921E9BDDA00167D5B /* icon-setting.png */; };
+		B7BE5E6C21E9BDE500167D5B /* icon-product.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E6B21E9BDE500167D5B /* icon-product.png */; };
+		B7BE5E6E21E9E36400167D5B /* icon-invoice-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E6D21E9E36000167D5B /* icon-invoice-30x30.png */; };
+		B7BE5E7021E9E59600167D5B /* icon-customer-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E6F21E9E59600167D5B /* icon-customer-30x30.png */; };
+		B7BE5E7221E9E5A400167D5B /* icon-product-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E7121E9E5A300167D5B /* icon-product-30x30.png */; };
+		B7BE5E7421E9E5AD00167D5B /* icon-setting-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E7321E9E5AD00167D5B /* icon-setting-30x30.png */; };
+		B7BE5E7621EA199200167D5B /* icon-app.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E7521EA199200167D5B /* icon-app.png */; };
+		B7BE5E7821EA1A0500167D5B /* icon-app-76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E7721EA1A0500167D5B /* icon-app-76x76.png */; };
+		B7BE5E7A21EA1A6300167D5B /* icon-app-167x167.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E7921EA1A6300167D5B /* icon-app-167x167.png */; };
+		B7BE5E8521EB793A00167D5B /* KCInvoiceComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE5E8421EB793A00167D5B /* KCInvoiceComposer.swift */; };
+		B7BE5E8721EB80E100167D5B /* KCCustomPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE5E8621EB80E100167D5B /* KCCustomPrintPageRenderer.swift */; };
+		B7BE5E8921EB868400167D5B /* KCPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE5E8821EB868400167D5B /* KCPreviewViewController.swift */; };
 		B7DB84D421C10A10005E148D /* KCInvoiceItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB84D321C10A10005E148D /* KCInvoiceItemViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +51,10 @@
 		B77E302E21A70A6A003784D9 /* KCCustomerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCustomerTableViewController.swift; sourceTree = "<group>"; };
 		B77E303021A70A88003784D9 /* KCProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCProductTableViewController.swift; sourceTree = "<group>"; };
 		B77E303221A70A9E003784D9 /* KCInvoiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCInvoiceTableViewController.swift; sourceTree = "<group>"; };
+		B782761921EB9F7E00D2A581 /* single_item.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = single_item.html; sourceTree = "<group>"; };
+		B782761A21EB9F7F00D2A581 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
+		B782761B21EB9F7F00D2A581 /* last_item.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = last_item.html; sourceTree = "<group>"; };
+		B782761C21EB9F8000D2A581 /* invoice.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = invoice.html; sourceTree = "<group>"; };
 		B79792CB216C4CE700C1E826 /* Invoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79792CE216C4CE700C1E826 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B79792D5216C4CE700C1E826 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,6 +63,20 @@
 		B79792DC216C4CE700C1E826 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7B3A3D121B021450080EC09 /* KCInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCInvoiceViewController.swift; sourceTree = "<group>"; };
 		B7BA73BB217830D500ABBF2D /* KCUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCUtility.swift; sourceTree = "<group>"; };
+		B7BE5E6521E9BDB900167D5B /* icon-customer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-customer.png"; sourceTree = "<group>"; };
+		B7BE5E6721E9BDC900167D5B /* icon-invoice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-invoice.png"; sourceTree = "<group>"; };
+		B7BE5E6921E9BDDA00167D5B /* icon-setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-setting.png"; sourceTree = "<group>"; };
+		B7BE5E6B21E9BDE500167D5B /* icon-product.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-product.png"; sourceTree = "<group>"; };
+		B7BE5E6D21E9E36000167D5B /* icon-invoice-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-invoice-30x30.png"; sourceTree = "<group>"; };
+		B7BE5E6F21E9E59600167D5B /* icon-customer-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-customer-30x30.png"; sourceTree = "<group>"; };
+		B7BE5E7121E9E5A300167D5B /* icon-product-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-product-30x30.png"; sourceTree = "<group>"; };
+		B7BE5E7321E9E5AD00167D5B /* icon-setting-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-setting-30x30.png"; sourceTree = "<group>"; };
+		B7BE5E7521EA199200167D5B /* icon-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-app.png"; sourceTree = "<group>"; };
+		B7BE5E7721EA1A0500167D5B /* icon-app-76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-app-76x76.png"; sourceTree = "<group>"; };
+		B7BE5E7921EA1A6300167D5B /* icon-app-167x167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-app-167x167.png"; sourceTree = "<group>"; };
+		B7BE5E8421EB793A00167D5B /* KCInvoiceComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCInvoiceComposer.swift; sourceTree = "<group>"; };
+		B7BE5E8621EB80E100167D5B /* KCCustomPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCustomPrintPageRenderer.swift; sourceTree = "<group>"; };
+		B7BE5E8821EB868400167D5B /* KCPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCPreviewViewController.swift; sourceTree = "<group>"; };
 		B7DB84D321C10A10005E148D /* KCInvoiceItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCInvoiceItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +103,10 @@
 		B79792C2216C4CE700C1E826 = {
 			isa = PBXGroup;
 			children = (
+				B782761C21EB9F8000D2A581 /* invoice.html */,
+				B782761B21EB9F7F00D2A581 /* last_item.html */,
+				B782761A21EB9F7F00D2A581 /* logo.jpg */,
+				B782761921EB9F7E00D2A581 /* single_item.html */,
 				B79792CD216C4CE700C1E826 /* Invoice */,
 				B79792CC216C4CE700C1E826 /* Products */,
 				B741FAE42171D9FF009FDE38 /* Frameworks */,
@@ -84,6 +124,7 @@
 		B79792CD216C4CE700C1E826 /* Invoice */ = {
 			isa = PBXGroup;
 			children = (
+				B7BE5E6421E9BD8C00167D5B /* img */,
 				B79792CE216C4CE700C1E826 /* AppDelegate.swift */,
 				B79792D4216C4CE700C1E826 /* Main.storyboard */,
 				B79792D7216C4CE700C1E826 /* Assets.xcassets */,
@@ -99,8 +140,29 @@
 				B77E303221A70A9E003784D9 /* KCInvoiceTableViewController.swift */,
 				B7B3A3D121B021450080EC09 /* KCInvoiceViewController.swift */,
 				B7DB84D321C10A10005E148D /* KCInvoiceItemViewController.swift */,
+				B7BE5E8421EB793A00167D5B /* KCInvoiceComposer.swift */,
+				B7BE5E8621EB80E100167D5B /* KCCustomPrintPageRenderer.swift */,
+				B7BE5E8821EB868400167D5B /* KCPreviewViewController.swift */,
 			);
 			path = Invoice;
+			sourceTree = "<group>";
+		};
+		B7BE5E6421E9BD8C00167D5B /* img */ = {
+			isa = PBXGroup;
+			children = (
+				B7BE5E7521EA199200167D5B /* icon-app.png */,
+				B7BE5E7721EA1A0500167D5B /* icon-app-76x76.png */,
+				B7BE5E7921EA1A6300167D5B /* icon-app-167x167.png */,
+				B7BE5E6521E9BDB900167D5B /* icon-customer.png */,
+				B7BE5E6F21E9E59600167D5B /* icon-customer-30x30.png */,
+				B7BE5E6721E9BDC900167D5B /* icon-invoice.png */,
+				B7BE5E6D21E9E36000167D5B /* icon-invoice-30x30.png */,
+				B7BE5E6B21E9BDE500167D5B /* icon-product.png */,
+				B7BE5E7121E9E5A300167D5B /* icon-product-30x30.png */,
+				B7BE5E6921E9BDDA00167D5B /* icon-setting.png */,
+				B7BE5E7321E9E5AD00167D5B /* icon-setting-30x30.png */,
+			);
+			path = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,9 +224,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7BE5E6621E9BDBA00167D5B /* icon-customer.png in Resources */,
+				B7BE5E7421E9E5AD00167D5B /* icon-setting-30x30.png in Resources */,
+				B7BE5E7621EA199200167D5B /* icon-app.png in Resources */,
+				B7BE5E7021E9E59600167D5B /* icon-customer-30x30.png in Resources */,
+				B7BE5E6A21E9BDDA00167D5B /* icon-setting.png in Resources */,
+				B7BE5E7A21EA1A6300167D5B /* icon-app-167x167.png in Resources */,
+				B782762021EB9F8000D2A581 /* invoice.html in Resources */,
 				B79792DB216C4CE700C1E826 /* LaunchScreen.storyboard in Resources */,
 				B79792D8216C4CE700C1E826 /* Assets.xcassets in Resources */,
 				B79792D6216C4CE700C1E826 /* Main.storyboard in Resources */,
+				B7BE5E6821E9BDCA00167D5B /* icon-invoice.png in Resources */,
+				B7BE5E7221E9E5A400167D5B /* icon-product-30x30.png in Resources */,
+				B782761F21EB9F8000D2A581 /* last_item.html in Resources */,
+				B782761D21EB9F8000D2A581 /* single_item.html in Resources */,
+				B782761E21EB9F8000D2A581 /* logo.jpg in Resources */,
+				B7BE5E7821EA1A0500167D5B /* icon-app-76x76.png in Resources */,
+				B7BE5E6C21E9BDE500167D5B /* icon-product.png in Resources */,
+				B7BE5E6E21E9E36400167D5B /* icon-invoice-30x30.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +252,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7BE5E8721EB80E100167D5B /* KCCustomPrintPageRenderer.swift in Sources */,
 				B76384F5218DFF17007F8AD3 /* KCCompanyInfoViewController.swift in Sources */,
+				B7BE5E8521EB793A00167D5B /* KCInvoiceComposer.swift in Sources */,
+				B7BE5E8921EB868400167D5B /* KCPreviewViewController.swift in Sources */,
 				B741FAE92171DD0D009FDE38 /* KCDBUtility.swift in Sources */,
 				B77E302D21A5A70D003784D9 /* KCProductInfoViewController.swift in Sources */,
 				B77E303321A70A9E003784D9 /* KCInvoiceTableViewController.swift in Sources */,
