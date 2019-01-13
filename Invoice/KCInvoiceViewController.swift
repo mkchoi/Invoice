@@ -331,7 +331,29 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                 
                 let invoiceNo = self.invoiceNumber.text!
                 let invoiceDate = self.dateOfIssue.text!
-                let companyInfo = ""
+                
+                var companyInfo = ""
+                
+                let queryComSql = "select id, company_name, address, tel, email from company_table"
+                print("query company_table")
+                
+                if let queryComResult = dbInstance.querySQL(sql: queryComSql) {
+                    
+                    for row in queryComResult {
+                        if let num = row["id"] {
+                            print("id=\(num)")
+                            
+                            companyInfo = (row["company_name"] as? String)!
+                            companyInfo += "<br>\((row["address"] as? String)!)"
+                            companyInfo += "<br>\((row["tel"] as? String)!)"
+                            companyInfo += "<br>\((row["email"] as? String)!)"
+                            
+                        }
+                        
+                    }
+                }
+                
+                
                 let recipientInfo = self.billedTo.text! + " (" + self.billedToAddress.text! + ")"
                 let invoiceDiscount = self.discount.text!
                 
