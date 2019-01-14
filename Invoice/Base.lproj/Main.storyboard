@@ -440,7 +440,6 @@
                         <viewLayoutGuide key="safeArea" id="1Ll-2T-Vff"/>
                     </view>
                     <navigationItem key="navigationItem" title="發票預覽" id="bNc-bn-isY">
-                        <barButtonItem key="backBarButtonItem" title="返回" id="I8p-i3-Za9"/>
                         <barButtonItem key="rightBarButtonItem" title="列印" id="ZKH-ox-cRh">
                             <connections>
                                 <action selector="exportToPDF:" destination="5pA-T7-uYk" id="63n-RT-gcz"/>
@@ -448,6 +447,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="printButton" destination="ZKH-ox-cRh" id="D9E-0w-7eA"/>
                         <outlet property="webPreview" destination="SYu-bP-WeN" id="yEV-GH-61U"/>
                     </connections>
                 </viewController>

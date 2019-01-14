@@ -327,6 +327,10 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             }
         } else if (segue.identifier == "previewSegue") {
             if (self.selectedId > 0) {
+                let backItem = UIBarButtonItem()
+                backItem.title = "返回"
+                navigationItem.backBarButtonItem = backItem
+                
                 previewView = segue.destination as? KCPreviewViewController
                 
                 let invoiceNo = self.invoiceNumber.text!

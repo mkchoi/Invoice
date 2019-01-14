@@ -11,6 +11,7 @@ import UIKit
 class KCPreviewViewController: UIViewController {
     
     @IBOutlet weak var webPreview: UIWebView!
+    @IBOutlet weak var printButton: UIBarButtonItem!
     
     var invoiceInfo: [String: AnyObject]!
     
@@ -52,7 +53,23 @@ class KCPreviewViewController: UIViewController {
     
     
     @IBAction func exportToPDF(_ sender: AnyObject) {
-        invoiceComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        //let pdfData = invoiceComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        let pdfData = invoiceComposer.exportWebViewToPDF(printFormatter: webPreview.viewPrintFormatter())
+        
+        let printInfo = UIPrintInfo(dictionary:nil)
+        printInfo.outputType = UIPrintInfoOutputType.general
+        printInfo.jobName = "invoice"
+        
+        // Set up print controller
+        let printController = UIPrintInteractionController.shared
+        printController.printInfo = printInfo
+        
+        // Assign a UIImage version of my UIView as a printing iten
+        printController.printingItem = pdfData
+        
+        // Do it
+        printController.present(from:self.printButton, animated: true, completionHandler: nil)
+        
         //showOptionsAlert()
     }
     

@@ -117,10 +117,26 @@ class InvoiceComposer: NSObject {
         return nil
     }
     
-    
-    func exportHTMLContentToPDF(HTMLContent: String) {
+    func exportWebViewToPDF(printFormatter: UIViewPrintFormatter) -> NSData! {
         let printPageRenderer = KCCustomPrintPageRenderer()
         
+        printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
+        
+        let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer: printPageRenderer)
+        
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
+        pdfFilename = documentsPath + "/Invoice\(invoiceNumber!).pdf"
+        pdfData?.write(toFile: pdfFilename, atomically: true)
+        
+        print(pdfFilename)
+        
+        return pdfData
+    }
+    
+    func exportHTMLContentToPDF(HTMLContent: String) -> NSData! {
+        let printPageRenderer = KCCustomPrintPageRenderer()
+        //let printPageRenderer = UIPrintPageRenderer()
+
         let printFormatter = UIMarkupTextPrintFormatter(markupText: HTMLContent)
         printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
         
@@ -131,6 +147,8 @@ class InvoiceComposer: NSObject {
         pdfData?.write(toFile: pdfFilename, atomically: true)
         
         print(pdfFilename)
+        
+        return pdfData
     }
     
     
