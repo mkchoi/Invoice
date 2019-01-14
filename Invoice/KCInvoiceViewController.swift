@@ -230,24 +230,6 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
     override func viewWillAppear(_ animated: Bool) {
         let util = KCUtility()
         
-        let queryCustomerSql = "select id, customer_name, address from customer_table"
-        print("query customer_table")
-        
-        if let queryCustomerResult = dbInstance.querySQL(sql: queryCustomerSql) {
-            
-            for row in queryCustomerResult {
-                if let num = row["id"] {
-                    print("id=\(num)")
-                    
-                    customerArray.append((row["customer_name"] as? String)!)
-                    customerAddressArray.append((row["address"] as? String)!)
-                    
-                    
-                }
-                
-            }
-        }
-        
         reloadTableView()
         
         if (self.selectedId > 0) {
@@ -308,20 +290,39 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         
         NotificationCenter.default.addObserver(self, selector: #selector(invoiceItemReload), name: NSNotification.Name("invoiceItemReload"), object: nil)
         
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-    
+        customerArray.removeAll()
+        customerAddressArray.removeAll()
+        
+        let queryCustomerSql = "select id, customer_name, address from customer_table"
+        print("query customer_table")
+        
+        if let queryCustomerResult = dbInstance.querySQL(sql: queryCustomerSql) {
+            
+            for row in queryCustomerResult {
+                if let num = row["id"] {
+                    print("id=\(num)")
+                    
+                    customerArray.append((row["customer_name"] as? String)!)
+                    customerAddressArray.append((row["address"] as? String)!)
+                    
+                    
+                }
+                
+            }
+        }
+        
         let billedToPickerView = UIPickerView()
-
+        
         billedToPickerView.delegate = self
         billedToPickerView.dataSource = self
+        
         if (customerArray.count > 0) {
             billedTo.inputView = billedToPickerView
         }
         
-       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

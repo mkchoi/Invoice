@@ -153,6 +153,10 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
         
         let util = KCUtility()
         
+        productArray.removeAll()
+        productDescArray.removeAll()
+        productUnitPriceArray.removeAll()
+        
         let queryProductSql = "select id, item_code, item_desc, unit_price from product_table"
         print("query product_table")
         
