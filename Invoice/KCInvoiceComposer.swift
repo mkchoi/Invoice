@@ -135,7 +135,6 @@ class InvoiceComposer: NSObject {
     
     func exportHTMLContentToPDF(HTMLContent: String) -> NSData! {
         let printPageRenderer = KCCustomPrintPageRenderer()
-        //let printPageRenderer = UIPrintPageRenderer()
 
         let printFormatter = UIMarkupTextPrintFormatter(markupText: HTMLContent)
         printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)

@@ -2,19 +2,20 @@
 <html>
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="content-type">
-            <title>INVOICE</title>
-            <style>
-                .invoice-box{
-                    max-width:800px;
-                    margin:auto;
-                    padding:30px;
-                    /*border:1px solid #eee;*/
-                    /*box-shadow:0 0 10px rgba(0, 0, 0, .15); */
-                    font-size:16px;
-                    line-height:24px;
-                    font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-                    color:#555;
-                }
+        <meta name="format-detection" content="telephone=no" />
+        <title>INVOICE</title>
+        <style>
+            .invoice-box{
+                max-width:800px;
+                margin:auto;
+                padding:30px;
+                /*border:1px solid #eee;*/
+                /*box-shadow:0 0 10px rgba(0, 0, 0, .15); */
+                font-size:16px;
+                line-height:24px;
+                font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+                color:#000;
+            }
             
             .invoice-box table{
                 width:100%;
@@ -68,6 +69,14 @@
                 font-weight:bold;
             }
             
+            .invoice-box table tr.issuerSign td:nth-child(1){
+                border-top:2px solid #eee;
+            }
+            
+            .invoice-box table tr.receiverSign td:nth-child(3){
+                border-top:2px solid #eee;
+            }
+            
             @media only screen and (max-width: 600px) {
                 .invoice-box table tr.top table td{
                     width:100%;
@@ -82,7 +91,7 @@
                 }
             }
             </style>
-            </head>
+    </head>
     <body>
         <div class="invoice-box">
             <table cellpadding="0" cellspacing="0">
@@ -144,6 +153,32 @@
                         <td align="right">
                             折扣： HK$#DISCOUNT# <br>
                             合計： HK$#TOTAL_AMOUNT#
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><br></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <table>
+                                <tr class="issuerSign receiverSign">
+                                    <td width="40%">
+                                        經手人
+                                    </td>
+                                    <td width="20%">
+                                        <br>
+                                    </td>
+                                    <td width="40%">
+                                        收貨人
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 </tbody>

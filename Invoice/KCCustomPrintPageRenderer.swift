@@ -29,11 +29,11 @@ class KCCustomPrintPageRenderer: UIPrintPageRenderer {
         self.setValue(NSValue(cgRect: pageFrame.insetBy(dx: 10.0, dy: 10.0)), forKey: "printableRect")
         
         
-        self.headerHeight = 50.0
-        self.footerHeight = 50.0
+        //self.headerHeight = 50.0
+        //self.footerHeight = 50.0
     }
     
-    
+    /*
     override func drawHeaderForPage(at pageIndex: Int, in headerRect: CGRect) {
         // Specify the header text.
         let headerText: NSString = "發票"
@@ -57,8 +57,7 @@ class KCCustomPrintPageRenderer: UIPrintPageRenderer {
         // Draw the header text.
         headerText.draw(at: CGPoint(x: pointX, y: pointY), withAttributes: textAttributes)
     }
-    
-    
+ 
     override func drawFooterForPage(at pageIndex: Int, in footerRect: CGRect) {
         let footerText: NSString = "多謝"
         
@@ -97,5 +96,5 @@ class KCCustomPrintPageRenderer: UIPrintPageRenderer {
         
         return testLabel.frame.size
     }
-    
+    */
 }
