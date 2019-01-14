@@ -91,6 +91,7 @@ class KCInvoiceTableViewController : UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         invoiceArray.removeAll()
+        billedArray.removeAll()
         idArray.removeAll()
         
         let querySql = "select id, billed_to, invoice_number, date_of_issue, invoice_total from invoice_table order by invoice_number desc"
