@@ -78,12 +78,12 @@ class KCProductInfoViewController : UIViewController {
         
     }
     
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
         
         if (self.selectedId > 0) {
             self.productTitle.text = "修改貨品"
             
-            let querySql = "select id, item_code, item_desc, unit_price from product_table"
+            let querySql = "select id, item_code, item_desc, unit_price from product_table where id=\(self.selectedId)"
             print("query product_table")
             
             if let queryResult = dbInstance.querySQL(sql: querySql) {

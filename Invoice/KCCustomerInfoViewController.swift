@@ -76,12 +76,12 @@ class KCCustomerInfoViewController : UIViewController {
         
     }
     
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
         
         if (self.selectedId > 0) {
             self.customerTitle.text = "修改客戶資料"
             
-            let querySql = "select id, customer_name, address from customer_table"
+            let querySql = "select id, customer_name, address from customer_table where id=\(self.selectedId)"
             print("query customer_table")
             
             if let queryResult = dbInstance.querySQL(sql: querySql) {

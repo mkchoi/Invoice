@@ -73,7 +73,7 @@ class KCCompanyInfoViewController : UIViewController {
         
     }
     
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
         
         let querySql = "select id, company_name, address, tel, email from company_table"
         print("query company_table")

@@ -227,10 +227,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         
     }
     
-    override func viewDidLoad() {
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(invoiceItemReload), name: NSNotification.Name("invoiceItemReload"), object: nil)
-        
+    override func viewWillAppear(_ animated: Bool) {
         let util = KCUtility()
         
         let queryCustomerSql = "select id, customer_name, address from customer_table"
@@ -251,23 +248,11 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             }
         }
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
         reloadTableView()
-        
-        
-        let billedToPickerView = UIPickerView()
-
-        billedToPickerView.delegate = self
-        billedToPickerView.dataSource = self
-        if (customerArray.count > 0) {
-            billedTo.inputView = billedToPickerView
-        }
         
         if (self.selectedId > 0) {
             
-            let querySql = "select id, billed_to, billed_to_address, invoice_number, date_of_issue, invoice_total, discount from invoice_table"
+            let querySql = "select id, billed_to, billed_to_address, invoice_number, date_of_issue, invoice_total, discount from invoice_table where id=\(self.selectedId)"
             print("query invoice_table")
             
             if let queryResult = dbInstance.querySQL(sql: querySql) {
@@ -299,7 +284,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                 for row in queryResult {
                     if let numOfOrder = row["numOfOrder"] {
                         print("numOfOrder=\(numOfOrder)")
-    
+                        
                         invoiceNumber.text = util.getInvoiceNumber(num: String(describing: numOfOrder))
                     }
                 }
@@ -317,6 +302,26 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             let result = dbInstance.executeSQL(sql: insertSql)
             print("insert invoice info=\(result)")
         }
+    }
+    
+    override func viewDidLoad() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(invoiceItemReload), name: NSNotification.Name("invoiceItemReload"), object: nil)
+        
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+    
+        let billedToPickerView = UIPickerView()
+
+        billedToPickerView.delegate = self
+        billedToPickerView.dataSource = self
+        if (customerArray.count > 0) {
+            billedTo.inputView = billedToPickerView
+        }
+        
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
