@@ -76,6 +76,7 @@ class KCInvoiceTableViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedId = idArray[indexPath.row]
+        print("selectedId=\(self.selectedId)")
         self.performSegue(withIdentifier: "modifyInvoiceSegue", sender: self)
     }
     

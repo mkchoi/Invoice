@@ -13,6 +13,7 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
     
     @IBOutlet weak var itemCode : UITextField!
     @IBOutlet weak var itemDesc : UITextField!
+    @IBOutlet weak var itemUnit : UITextField!
     @IBOutlet weak var unitPrice : UITextField!
     @IBOutlet weak var qty : UITextField!
     @IBOutlet weak var amount : UITextField!
@@ -20,6 +21,7 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
     var selectedId : Int32 = 0
     var productArray : [String] = []
     var productDescArray : [String] = []
+    var productUnitArray : [String] = []
     var productUnitPriceArray : [Double] = []
     
     let dbInstance = KCDBUtility()
@@ -44,11 +46,13 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
         if (pickerView.tag == 1) {
             self.itemCode.text = self.productArray[row]
             self.itemDesc.text = self.productDescArray[row]
+            self.itemUnit.text = self.productUnitArray[row]
             self.unitPrice.text = String(self.productUnitPriceArray[row])
             self.itemCode.endEditing(true)
         } else {
             self.itemCode.text = self.productArray[row]
             self.itemDesc.text = self.productDescArray[row]
+            self.itemUnit.text = self.productUnitArray[row]
             self.unitPrice.text = String(self.productUnitPriceArray[row])
             self.itemDesc.endEditing(true)
         }
@@ -128,9 +132,9 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
         
         if (self.selectedId > 0) {
             
-            var insertSql = "insert into invoice_item_table (invoice_id, item_code, item_desc, unit_price, qty, amount, create_time) values "
+            var insertSql = "insert into invoice_item_table (invoice_id, item_code, item_desc, item_unit, unit_price, qty, amount, create_time) values "
             insertSql += "(\(self.selectedId), '" + (itemCode.text)! + "', '"
-            insertSql += (itemDesc.text)! + "', '" + (unitPrice.text)! + "', '"
+            insertSql += (itemDesc.text)! + "', '" + (itemUnit.text)! + "', '" + (unitPrice.text)! + "', '"
             insertSql += (qty.text)! + "', '" + (amount.text)! + "', '"
             insertSql += util.getTodayStr() + "')"
             
@@ -151,13 +155,12 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
     
     override func viewDidLoad() {
         
-        let util = KCUtility()
-        
         productArray.removeAll()
         productDescArray.removeAll()
+        productUnitArray.removeAll()
         productUnitPriceArray.removeAll()
         
-        let queryProductSql = "select id, item_code, item_desc, unit_price from product_table"
+        let queryProductSql = "select id, item_code, item_desc, item_unit, unit_price from product_table"
         print("query product_table")
         
         if let queryProductResult = dbInstance.querySQL(sql: queryProductSql) {
@@ -168,6 +171,7 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
                     
                     productArray.append((row["item_code"] as? String)!)
                     productDescArray.append((row["item_desc"] as? String)!)
+                    productUnitArray.append((row["item_unit"] as? String)!)
                     productUnitPriceArray.append((row["unit_price"] as? Double)!)
                     
                 }

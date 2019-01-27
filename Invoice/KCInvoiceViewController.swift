@@ -25,7 +25,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
     var customerAddressArray : [String] = []
     
     var itemArray: [String] = []
-    var qtyArray: [Int32] = []
+    var qtyArray: [Double] = []
     var amountArray: [Double] = []
     var idArray: [Int32] = []
     
@@ -182,7 +182,15 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        /*var updateSql = "update invoice_table set "
+        updateSql += "billed_to='" + (billedTo.text)! + "', "
+        updateSql += "billed_to_address='" + (billedToAddress.text)! + "', "
+        updateSql += "invoice_total=" + (invoiceTotal.text)! + ", "
+        updateSql += "discount=" + (discount.text)! + " "
+        updateSql += "where id=\(self.selectedId)"
         
+        let result = dbInstance.executeSQL(sql: updateSql)
+        print("update invoice info=\(result)")*/
         navigationController?.popViewController(animated: true)
         
     }
@@ -211,7 +219,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                     print("item_desc=\(name)")
                     idArray.append(row["id"] as! Int32)
                     itemArray.append(row["item_desc"] as! String)
-                    qtyArray.append(row["qty"] as! Int32)
+                    qtyArray.append(row["qty"] as! Double)
                     amountArray.append(row["amount"] as! Double)
                     
                     amount += row["amount"] as! Double
@@ -223,7 +231,13 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         invoiceTotal.text = String(describing: amount)
         
         print("query end")
+    
+        var updateSql = "update invoice_table set "
+        updateSql += "invoice_total=" + (invoiceTotal.text)! + " "
+        updateSql += "where id=\(self.selectedId)"
         
+        let result = dbInstance.executeSQL(sql: updateSql)
+        print("update invoice info=\(result)")
         
     }
     
@@ -283,6 +297,22 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             
             let result = dbInstance.executeSQL(sql: insertSql)
             print("insert invoice info=\(result)")
+            
+            let querySql2 = "select id from invoice_table where invoice_number=" + (invoiceNumber.text)!
+            print("query2 invoice_table")
+            
+            if let queryResult2 = dbInstance.querySQL(sql: querySql2) {
+                
+                for row in queryResult2 {
+                    if let num = row["id"] {
+                        print("id=\(num)")
+                        
+                        self.selectedId = (num as? Int32)!
+                    }
+                    
+                }
+            }
+            
         }
     }
     
@@ -333,6 +363,18 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             }
         } else if (segue.identifier == "previewSegue") {
             if (self.selectedId > 0) {
+                print("previewSegue")
+                print("billedTo=\(self.billedTo.text)!")
+                var updateSql = "update invoice_table set "
+                updateSql += "billed_to='" + (self.billedTo.text)! + "', "
+                updateSql += "billed_to_address='" + (self.billedToAddress.text)! + "', "
+                updateSql += "invoice_total=" + (self.invoiceTotal.text)! + ", "
+                updateSql += "discount=" + (self.discount.text)! + " "
+                updateSql += "where id=\(self.selectedId)"
+                
+                let result = dbInstance.executeSQL(sql: updateSql)
+                print("update invoice info=\(result)")
+                
                 let backItem = UIBarButtonItem()
                 backItem.title = "返回"
                 navigationItem.backBarButtonItem = backItem
@@ -372,8 +414,8 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         
                 let totalAmount = String(describing: (t - d))
                 
-                let querySql = "select id, item_desc, unit_price, qty, amount from invoice_item_table where invoice_id=\(self.selectedId)"
-                print("query invoice_table")
+                let querySql = "select id, item_desc, item_unit, unit_price, qty, amount from invoice_item_table where invoice_id=\(self.selectedId)"
+                print("query invoice_item_table")
                 
                 
                 var items = [[String: String]]()
@@ -385,11 +427,12 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                             print("id=\(num)")
                             
                             let itemDesc = (row["item_desc"] as? String)!
-                            //let unitPrice = (row["unit_price"] as? String)!
-                            let qty = String(describing: (row["qty"] as? Int32)!)
+                            let itemUnit = (row["item_unit"] as? String)!
+                            let unitPrice = String(describing: (row["unit_price"] as? Double)!)
+                            let qty = String(describing: (row["qty"] as? Double)!)
                             let amount = String(describing: (row["amount"] as? Double)!)
                             
-                            items.append(["item": itemDesc, "qty": qty, "price": amount])
+                            items.append(["item": itemDesc, "itemUnit": itemUnit, "unitPrice": unitPrice, "qty": qty, "price": amount])
                             
                         }
                         

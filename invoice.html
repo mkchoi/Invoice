@@ -37,9 +37,15 @@
             }
             
             .invoice-box table tr.top table td.title{
-                font-size:45px;
-                line-height:45px;
-                color:#333;
+                font-size:30px;
+                line-height:30px;
+                color:#000;
+            }
+        
+            .invoice-box table tr.top table td.company{
+                font-size:12px;
+                line-height:12px;
+                color:#000;
             }
             
             .invoice-box table tr.information table td{
@@ -64,7 +70,7 @@
                 border-bottom:none;
             }
             
-            .invoice-box table tr.total td:nth-child(3){
+            .invoice-box table tr.total td:nth-child(4){
                 border-top:2px solid #eee;
                 font-weight:bold;
             }
@@ -73,7 +79,7 @@
                 border-top:2px solid #eee;
             }
             
-            .invoice-box table tr.receiverSign td:nth-child(3){
+            .invoice-box table tr.receiverSign td:nth-child(4){
                 border-top:2px solid #eee;
             }
             
@@ -97,14 +103,14 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr class="top">
-                        <td colspan="3">
+                        <td colspan="4">
                             <table>
                                 <tbody>
                                     <tr>
                                         <td class="title">
-                                            <img src="#LOGO_IMAGE#" style="width:100%; max-width:300px; background-color: #cdcdcd">
+                                            <img src="#LOGO_IMAGE#" style="width:100%; max-width:150px; background-color: #cdcdcd">
                                         </td>
-                                        <td>
+                                        <td class="company">
                                             發票編號： #INVOICE_NUMBER#<br><br>
                                             #SENDER_INFO#
                                         </td>
@@ -114,7 +120,7 @@
                         </td>
                     </tr>
                     <tr class="information">
-                        <td colspan="3">
+                        <td colspan="4">
                             <table>
                                 <tbody>
                                     <tr>
@@ -139,11 +145,15 @@
                     -->
                     <tr class="heading">
                         <td width="50%"> 貨品 </td>
-                        <td width="20%" align="right"> 數量 </td>
-                        <td width="30%" align="right"> 金額 </td>
+                        <td width="15%" align="left"> 單價 </td>
+                        <td width="15%" align="right"> 數量 </td>
+                        <td width="20%" align="right"> 金額 </td>
                     </tr>
                     #ITEMS#
                     <tr class="total">
+                        <td>
+                            <br>
+                        </td>
                         <td>
                             <br>
                         </td>
@@ -156,22 +166,25 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3"><br></td>
+                        <td colspan="4"><br></td>
                     </tr>
                     <tr>
-                        <td colspan="3"><br></td>
+                        <td colspan="4"><br></td>
                     </tr>
                     <tr>
-                        <td colspan="3"><br></td>
+                        <td colspan="4"><br></td>
                     </tr>
                     <tr>
-                        <td colspan="3">
+                        <td colspan="4">
                             <table>
                                 <tr class="issuerSign receiverSign">
                                     <td width="40%">
                                         經手人
                                     </td>
-                                    <td width="20%">
+                                    <td width="10%">
+                                        <br>
+                                    </td>
+                                    <td width="10%">
                                         <br>
                                     </td>
                                     <td width="40%">

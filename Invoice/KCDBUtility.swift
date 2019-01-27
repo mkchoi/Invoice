@@ -16,7 +16,7 @@ class KCDBUtility {
     var instance : KCDBUtility? = nil;
     var dbName : String = "invoice";
     var dbContent : String = "Initial DB";
-    var dbVersion = 7;
+    var dbVersion = 9;
     var db:OpaquePointer? = nil;
 
     var createDbVerTable = "CREATE TABLE IF NOT EXISTS dbver_table "
@@ -41,8 +41,9 @@ class KCDBUtility {
         + "invoice_id INTEGER, "
         + "item_code TEXT, "
         + "item_desc TEXT, "
+        + "item_unit TEXT, "
         + "unit_price REAL, "
-        + "qty INTEGER, "
+        + "qty REAL, "
         + "amount REAL, "
         + "create_time DATETIME)";
     
@@ -50,6 +51,7 @@ class KCDBUtility {
         + "(id INTEGER PRIMARY KEY AUTOINCREMENT, "
         + "item_code TEXT, "
         + "item_desc TEXT, "
+        + "item_unit TEXT, "
         + "unit_price REAL, "
         + "create_time DATETIME)";
     

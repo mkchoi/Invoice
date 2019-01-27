@@ -14,6 +14,7 @@ class KCProductInfoViewController : UIViewController {
     @IBOutlet weak var productCode : UITextField!
     @IBOutlet weak var productName : UITextField!
     @IBOutlet weak var unitPrice : UITextField!
+    @IBOutlet weak var productUnit : UITextField!
     @IBOutlet weak var productTitle : UILabel!
     
     var selectedId: Int32 = 0
@@ -50,7 +51,7 @@ class KCProductInfoViewController : UIViewController {
         if (hasData) {
             print("hasData")
             var updateSql = "update product_table set item_code='" + (productCode.text)! + "', "
-            updateSql += "item_desc='" + (productName.text)! + "', "
+            updateSql += "item_desc='" + (productName.text)! + "', item_unit='" + (productUnit.text)! + "', "
             updateSql += "unit_price='" + (unitPrice.text)! + "', create_time='" + util.getTodayStr() + "' "
             updateSql += "where id=" + id
             
@@ -59,8 +60,8 @@ class KCProductInfoViewController : UIViewController {
             
             
         } else {
-            var insertSql = "insert into product_table (item_code, item_desc, unit_price, create_time) values ('"
-            insertSql += (productCode.text)! + "', '" + (productName.text)! + "', '"
+            var insertSql = "insert into product_table (item_code, item_desc, item_unit, unit_price, create_time) values ('"
+            insertSql += (productCode.text)! + "', '" + (productName.text)! + "', '" + (productUnit.text)! + "', '"
             insertSql += (unitPrice.text)! + "', '" + util.getTodayStr() + "')"
             
             let result = dbInstance.executeSQL(sql: insertSql)
@@ -83,7 +84,7 @@ class KCProductInfoViewController : UIViewController {
         if (self.selectedId > 0) {
             self.productTitle.text = "修改貨品"
             
-            let querySql = "select id, item_code, item_desc, unit_price from product_table where id=\(self.selectedId)"
+            let querySql = "select id, item_code, item_desc, item_unit, unit_price from product_table where id=\(self.selectedId)"
             print("query product_table")
             
             if let queryResult = dbInstance.querySQL(sql: querySql) {
@@ -94,6 +95,7 @@ class KCProductInfoViewController : UIViewController {
                         
                         productCode.text = (row["item_code"] as? String)!
                         productName.text = (row["item_desc"] as? String)!
+                        productUnit.text = (row["item_unit"] as? String)!
                         unitPrice.text = String(describing: (row["unit_price"] as? Double)!)
                         
                     }
