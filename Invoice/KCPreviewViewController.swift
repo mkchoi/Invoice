@@ -84,7 +84,8 @@ class KCPreviewViewController: UIViewController {
                                                            recipientInfo: invoiceInfo["recipientInfo"] as! String,
                                                            items: invoiceInfo["items"] as! [[String: String]],
                                                            discount: invoiceInfo["discount"] as! String,
-                                                           totalAmount: invoiceInfo["totalAmount"] as! String) {
+                                                           totalAmount: invoiceInfo["totalAmount"] as! String,
+                                                           currency: invoiceInfo["currency"] as! String) {
             
             webPreview.loadHTMLString(invoiceHTML, baseURL: NSURL(string: invoiceComposer.pathToInvoiceHTMLTemplate!)! as URL)
             HTMLContent = invoiceHTML

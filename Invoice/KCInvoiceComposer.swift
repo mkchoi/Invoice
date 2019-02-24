@@ -34,7 +34,7 @@ class InvoiceComposer: NSObject {
     }
     
     
-    func renderInvoice(invoiceNumber: String, invoiceDate: String, senderInfo: String, recipientInfo: String, items: [[String: String]], discount: String, totalAmount: String) -> String! {
+    func renderInvoice(invoiceNumber: String, invoiceDate: String, senderInfo: String, recipientInfo: String, items: [[String: String]], discount: String, totalAmount: String, currency: String) -> String! {
         // Store the invoice number for future use.
         self.invoiceNumber = invoiceNumber
         
@@ -69,10 +69,12 @@ class InvoiceComposer: NSObject {
             //HTMLContent = HTMLContent.replacingOccurrences(of: "#PAYMENT_METHOD#", with: paymentMethod)
             
             // Discount.
-            HTMLContent = HTMLContent.replacingOccurrences(of: "#DISCOUNT#", with: discount)
+            let formattedDiscount = currency + " \(discount)"
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#DISCOUNT#", with: formattedDiscount)
             
             // Total amount.
-            HTMLContent = HTMLContent.replacingOccurrences(of: "#TOTAL_AMOUNT#", with: totalAmount)
+             let formattedTotalAmt = currency + " \(totalAmount)"
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#TOTAL_AMOUNT#", with: formattedTotalAmt)
             
             // The invoice items will be added by using a loop.
             var allItems = ""
@@ -93,7 +95,7 @@ class InvoiceComposer: NSObject {
                 // Replace the description and price placeholders with the actual values.
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_DESC#", with: items[i]["item"]!)
                 
-                let formattedUnitPrice = "HK$" + "\(items[i]["unitPrice"]!)"
+                let formattedUnitPrice = currency + " \(items[i]["unitPrice"]!)"
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#UNIT_PRICE#", with: formattedUnitPrice)
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#QTY#", with: items[i]["qty"]!)
@@ -101,7 +103,7 @@ class InvoiceComposer: NSObject {
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_UNIT#", with: items[i]["itemUnit"]!)
                 
                 // Format each item's price as a currency value.
-                let formattedPrice = "HK$" + "\(items[i]["price"]!)"
+                let formattedPrice = currency + " \(items[i]["price"]!)"
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#PRICE#", with: formattedPrice)
                 
                 // Add the item's HTML code to the general items string.

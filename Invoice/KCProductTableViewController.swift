@@ -68,7 +68,7 @@ class KCProductTableViewController : UITableViewController {
         cell.textLabel?.text = productArray[indexPath.row]
         
         if let label1 = cell.viewWithTag(1) as? UILabel {
-            label1.text = String(describing: priceArray[indexPath.row])
+            label1.text = "$ " + String(describing: priceArray[indexPath.row])
         }
         
         return cell
@@ -103,7 +103,10 @@ class KCProductTableViewController : UITableViewController {
                 if let code = row["item_code"] {
                     print("item_code=\(code)")
                     idArray.append(row["id"] as! Int32)
-                    productArray.append(row["item_desc"] as! String)
+                    let itemCode = row["item_code"] as! String
+                    let itemDesc = row["item_desc"] as! String
+                    let productDesc = "\(itemCode)   \(itemDesc)"
+                    productArray.append(productDesc)
                     priceArray.append(row["unit_price"] as! Double)
                 }
             }

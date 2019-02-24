@@ -69,12 +69,19 @@ class KCDBUtility {
         + "email TEXT, "
         + "create_time DATETIME)";
     
+    var createCurrencyTable = "CREATE TABLE IF NOT EXISTS currency_table "
+        + "(id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        + "currency_unit TEXT, "
+        + "create_time DATETIME)";
+
+    
     var dropDbVerTable = "DROP TABLE dbver_table";
     var dropInvoiceTable = "DROP TABLE invoice_table";
     var dropInvoiceItemTable = "DROP TABLE invoice_item_table";
     var dropProductTable = "DROP TABLE product_table";
     var dropCustomerTable = "DROP TABLE customer_table";
     var dropCompanyTable = "DROP TABLE company_table";
+    var dropCurrencyTable = "DROP TABLE currency_table";
     
     init() {
         openDB();
@@ -106,7 +113,8 @@ class KCDBUtility {
             && sqlite3_exec(db, createInvoiceItemTable, nil, nil, &errorMsg) == SQLITE_OK
             && sqlite3_exec(db, createProductTable, nil, nil, &errorMsg) == SQLITE_OK
             && sqlite3_exec(db, createCustomerTable, nil, nil, &errorMsg) == SQLITE_OK
-            && sqlite3_exec(db, createCompanyTable, nil, nil, &errorMsg) == SQLITE_OK) {
+            && sqlite3_exec(db, createCompanyTable, nil, nil, &errorMsg) == SQLITE_OK
+            && sqlite3_exec(db, createCurrencyTable, nil, nil, &errorMsg) == SQLITE_OK) {
             
             print("create tables ok");
             
@@ -196,7 +204,8 @@ class KCDBUtility {
             && sqlite3_exec(db, dropInvoiceItemTable, nil, nil, &errorMsg) == SQLITE_OK
             && sqlite3_exec(db, dropProductTable, nil, nil, &errorMsg) == SQLITE_OK
             && sqlite3_exec(db, dropCustomerTable, nil, nil, &errorMsg) == SQLITE_OK
-            && sqlite3_exec(db, dropCompanyTable, nil, nil, &errorMsg) == SQLITE_OK) {
+            && sqlite3_exec(db, dropCompanyTable, nil, nil, &errorMsg) == SQLITE_OK
+            && sqlite3_exec(db, dropCurrencyTable, nil, nil, &errorMsg) == SQLITE_OK) {
             
             print("drop tables ok");
         }

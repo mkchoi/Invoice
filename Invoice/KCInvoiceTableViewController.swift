@@ -68,7 +68,7 @@ class KCInvoiceTableViewController : UITableViewController {
         cell.textLabel?.text = invoiceArray[indexPath.row]
         
         if let label1 = cell.viewWithTag(1) as? UILabel {
-            label1.text = billedArray[indexPath.row]
+            label1.text = "$ " + billedArray[indexPath.row]
         }
         
         return cell
@@ -108,9 +108,9 @@ class KCInvoiceTableViewController : UITableViewController {
                     let dateOfIssue = row["date_of_issue"] as! String
                     let billedTo = row["billed_to"] as! String
                     let invoiceTotal = row["invoice_total"] as! Double
-                    let invoiceDesc = "\(dateOfIssue)    \(invoiceNumber)"
+                    let invoiceDesc = "\(dateOfIssue)   \(invoiceNumber)   \(billedTo)"
                     invoiceArray.append(invoiceDesc)
-                    let billedDesc = "\(billedTo)    $\(invoiceTotal)"
+                    let billedDesc = "\(invoiceTotal)"
                     billedArray.append(billedDesc)
                 }
             }

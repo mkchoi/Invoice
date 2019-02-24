@@ -71,7 +71,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         }
         
         if let label2 = cell.viewWithTag(2) as? UILabel {
-            label2.text = String(describing: amountArray[indexPath.row])
+            label2.text = "$ " + String(describing: amountArray[indexPath.row])
         }
         
         return cell
@@ -439,8 +439,26 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                     }
                 }
                 
+                let queryCurSql = "select id, currency_unit from currency_table"
+                print("query currency_table")
                 
-                let invoice = ["invoiceNumber": invoiceNo, "invoiceDate": invoiceDate, "senderInfo": companyInfo, "recipientInfo": recipientInfo, "discount": invoiceDiscount, "totalAmount": totalAmount, "items": items] as [String : AnyObject]
+                var currency = "HKD"
+                
+                if let queryCurResult = dbInstance.querySQL(sql: queryCurSql) {
+                    
+                    for row in queryCurResult {
+                        if let num = row["id"] {
+                            print("id=\(num)")
+                            
+                            currency = (row["currency_unit"] as? String)!
+                            
+                        }
+                        
+                    }
+                }
+                
+                
+                let invoice = ["invoiceNumber": invoiceNo, "invoiceDate": invoiceDate, "senderInfo": companyInfo, "recipientInfo": recipientInfo, "discount": invoiceDiscount, "totalAmount": totalAmount, "currency": currency, "items": items] as [String : AnyObject]
                 
                 previewView?.invoiceInfo = invoice
             }

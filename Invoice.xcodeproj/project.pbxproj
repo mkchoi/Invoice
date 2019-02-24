@@ -39,6 +39,8 @@
 		B7BE5E8521EB793A00167D5B /* KCInvoiceComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE5E8421EB793A00167D5B /* KCInvoiceComposer.swift */; };
 		B7BE5E8721EB80E100167D5B /* KCCustomPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE5E8621EB80E100167D5B /* KCCustomPrintPageRenderer.swift */; };
 		B7BE5E8921EB868400167D5B /* KCPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE5E8821EB868400167D5B /* KCPreviewViewController.swift */; };
+		B7D46F5A220D30FA0025DE3C /* KCCompanyLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D46F59220D30FA0025DE3C /* KCCompanyLogoViewController.swift */; };
+		B7D46F5C220D31170025DE3C /* KCCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D46F5B220D31170025DE3C /* KCCurrencyViewController.swift */; };
 		B7DB84D421C10A10005E148D /* KCInvoiceItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB84D321C10A10005E148D /* KCInvoiceItemViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,8 @@
 		B7BE5E8421EB793A00167D5B /* KCInvoiceComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCInvoiceComposer.swift; sourceTree = "<group>"; };
 		B7BE5E8621EB80E100167D5B /* KCCustomPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCustomPrintPageRenderer.swift; sourceTree = "<group>"; };
 		B7BE5E8821EB868400167D5B /* KCPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCPreviewViewController.swift; sourceTree = "<group>"; };
+		B7D46F59220D30FA0025DE3C /* KCCompanyLogoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCompanyLogoViewController.swift; sourceTree = "<group>"; };
+		B7D46F5B220D31170025DE3C /* KCCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCurrencyViewController.swift; sourceTree = "<group>"; };
 		B7DB84D321C10A10005E148D /* KCInvoiceItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCInvoiceItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +147,8 @@
 				B7BE5E8421EB793A00167D5B /* KCInvoiceComposer.swift */,
 				B7BE5E8621EB80E100167D5B /* KCCustomPrintPageRenderer.swift */,
 				B7BE5E8821EB868400167D5B /* KCPreviewViewController.swift */,
+				B7D46F59220D30FA0025DE3C /* KCCompanyLogoViewController.swift */,
+				B7D46F5B220D31170025DE3C /* KCCurrencyViewController.swift */,
 			);
 			path = Invoice;
 			sourceTree = "<group>";
@@ -253,7 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7BE5E8721EB80E100167D5B /* KCCustomPrintPageRenderer.swift in Sources */,
+				B7D46F5C220D31170025DE3C /* KCCurrencyViewController.swift in Sources */,
 				B76384F5218DFF17007F8AD3 /* KCCompanyInfoViewController.swift in Sources */,
+				B7D46F5A220D30FA0025DE3C /* KCCompanyLogoViewController.swift in Sources */,
 				B7BE5E8521EB793A00167D5B /* KCInvoiceComposer.swift in Sources */,
 				B7BE5E8921EB868400167D5B /* KCPreviewViewController.swift in Sources */,
 				B741FAE92171DD0D009FDE38 /* KCDBUtility.swift in Sources */,
