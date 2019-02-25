@@ -907,10 +907,10 @@
             </objects>
             <point key="canvasLocation" x="2143" y="1067"/>
         </scene>
-        <!--View Controller-->
+        <!--Company Logo View Controller-->
         <scene sceneID="MFt-6v-tfD">
             <objects>
-                <viewController id="L9r-2h-oJh" sceneMemberID="viewController">
+                <viewController id="L9r-2h-oJh" customClass="KCCompanyLogoViewController" customModule="Invoice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RR3-LR-DTh">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -922,14 +922,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iYy-BF-A0t">
-                                <rect key="frame" x="392" y="206" width="240" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzv-6H-jUI">
+                                <rect key="frame" x="367" y="206" width="290" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="xxx"/>
+                                <connections>
+                                    <action selector="logoButtonTapped:" destination="L9r-2h-oJh" eventType="touchUpInside" id="azd-gY-h6d"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower-logo-290x135.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iYy-BF-A0t">
+                                <rect key="frame" x="367" y="206" width="290" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dGP-Ra-Wej"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="iYy-BF-A0t" id="gb3-1x-AKt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jp-Fc-sMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1054,6 +1065,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="flower-logo-290x135.jpg" width="290" height="135"/>
         <image name="icon-customer-30x30.png" width="30" height="30"/>
         <image name="icon-invoice-30x30.png" width="30" height="30"/>
         <image name="icon-product-30x30.png" width="30" height="30"/>

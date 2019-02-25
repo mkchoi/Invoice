@@ -16,13 +16,13 @@ class InvoiceComposer: NSObject {
     
     let pathToLastItemHTMLTemplate = Bundle.main.path(forResource: "last_item", ofType: "html")
     
-    var senderInfo = "老三行<br>油麻地炮台街９5號４號鋪<br>3741 1533 / 9482 2381<br>laoshanhang88@yahoo.com.hk"
+    var senderInfo = " "
     
     //let dueDate = ""
     
     let paymentMethod = "現金"
     
-    let logoImageURL = "logo.jpg"
+    var logoImageURL = "logo.jpg"
     
     var invoiceNumber: String!
     
@@ -48,6 +48,11 @@ class InvoiceComposer: NSObject {
             
             // Replace all the placeholders with real values except for the items.
             // The logo image.
+            let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("logo.jpg")
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: paths) {
+                logoImageURL = paths
+            }
             HTMLContent = HTMLContent.replacingOccurrences(of: "#LOGO_IMAGE#", with: logoImageURL)
             
             // Invoice number.

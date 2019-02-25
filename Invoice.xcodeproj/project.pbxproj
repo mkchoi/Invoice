@@ -11,6 +11,7 @@
 		B741FAE92171DD0D009FDE38 /* KCDBUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741FAE82171DD0D009FDE38 /* KCDBUtility.swift */; };
 		B76384F5218DFF17007F8AD3 /* KCCompanyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76384F4218DFF17007F8AD3 /* KCCompanyInfoViewController.swift */; };
 		B76384F7219ABC6D007F8AD3 /* KCCustomerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76384F6219ABC6D007F8AD3 /* KCCustomerInfoViewController.swift */; };
+		B7687B152224539B00B63940 /* flower-logo-290x135.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7687B142224539A00B63940 /* flower-logo-290x135.jpg */; };
 		B77E302D21A5A70D003784D9 /* KCProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E302C21A5A70D003784D9 /* KCProductInfoViewController.swift */; };
 		B77E302F21A70A6A003784D9 /* KCCustomerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E302E21A70A6A003784D9 /* KCCustomerTableViewController.swift */; };
 		B77E303121A70A88003784D9 /* KCProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E303021A70A88003784D9 /* KCProductTableViewController.swift */; };
@@ -49,6 +50,7 @@
 		B741FAE82171DD0D009FDE38 /* KCDBUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCDBUtility.swift; sourceTree = "<group>"; };
 		B76384F4218DFF17007F8AD3 /* KCCompanyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCompanyInfoViewController.swift; sourceTree = "<group>"; };
 		B76384F6219ABC6D007F8AD3 /* KCCustomerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCustomerInfoViewController.swift; sourceTree = "<group>"; };
+		B7687B142224539A00B63940 /* flower-logo-290x135.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "flower-logo-290x135.jpg"; sourceTree = "<group>"; };
 		B77E302C21A5A70D003784D9 /* KCProductInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCProductInfoViewController.swift; sourceTree = "<group>"; };
 		B77E302E21A70A6A003784D9 /* KCCustomerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCustomerTableViewController.swift; sourceTree = "<group>"; };
 		B77E303021A70A88003784D9 /* KCProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCProductTableViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		B7BE5E6421E9BD8C00167D5B /* img */ = {
 			isa = PBXGroup;
 			children = (
+				B7687B142224539A00B63940 /* flower-logo-290x135.jpg */,
 				B7BE5E7521EA199200167D5B /* icon-app.png */,
 				B7BE5E7721EA1A0500167D5B /* icon-app-76x76.png */,
 				B7BE5E7921EA1A6300167D5B /* icon-app-167x167.png */,
@@ -245,6 +248,7 @@
 				B782761F21EB9F8000D2A581 /* last_item.html in Resources */,
 				B782761D21EB9F8000D2A581 /* single_item.html in Resources */,
 				B782761E21EB9F8000D2A581 /* logo.jpg in Resources */,
+				B7687B152224539B00B63940 /* flower-logo-290x135.jpg in Resources */,
 				B7BE5E7821EA1A0500167D5B /* icon-app-76x76.png in Resources */,
 				B7BE5E6C21E9BDE500167D5B /* icon-product.png in Resources */,
 				B7BE5E6E21E9E36400167D5B /* icon-invoice-30x30.png in Resources */,
