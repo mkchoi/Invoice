@@ -1,0 +1,1 @@
+insert into product_table (item_code, item_desc, item_unit, unit_price, create_time) values ('00001', '牛油', '塊', '23', CURRENT_TIMESTAMP)

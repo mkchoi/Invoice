@@ -40,6 +40,8 @@
 		B7BE5E8521EB793A00167D5B /* KCInvoiceComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE5E8421EB793A00167D5B /* KCInvoiceComposer.swift */; };
 		B7BE5E8721EB80E100167D5B /* KCCustomPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE5E8621EB80E100167D5B /* KCCustomPrintPageRenderer.swift */; };
 		B7BE5E8921EB868400167D5B /* KCPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE5E8821EB868400167D5B /* KCPreviewViewController.swift */; };
+		B7D31FB7222A8DD3000844F7 /* KCQuickCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D31FB6222A8DD3000844F7 /* KCQuickCommandViewController.swift */; };
+		B7D31FB9222B01A3000844F7 /* laoshanhang.txt in Resources */ = {isa = PBXBuildFile; fileRef = B7D31FB8222B01A3000844F7 /* laoshanhang.txt */; };
 		B7D46F5A220D30FA0025DE3C /* KCCompanyLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D46F59220D30FA0025DE3C /* KCCompanyLogoViewController.swift */; };
 		B7D46F5C220D31170025DE3C /* KCCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D46F5B220D31170025DE3C /* KCCurrencyViewController.swift */; };
 		B7DB84D421C10A10005E148D /* KCInvoiceItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB84D321C10A10005E148D /* KCInvoiceItemViewController.swift */; };
@@ -81,6 +83,8 @@
 		B7BE5E8421EB793A00167D5B /* KCInvoiceComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCInvoiceComposer.swift; sourceTree = "<group>"; };
 		B7BE5E8621EB80E100167D5B /* KCCustomPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCustomPrintPageRenderer.swift; sourceTree = "<group>"; };
 		B7BE5E8821EB868400167D5B /* KCPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCPreviewViewController.swift; sourceTree = "<group>"; };
+		B7D31FB6222A8DD3000844F7 /* KCQuickCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCQuickCommandViewController.swift; sourceTree = "<group>"; };
+		B7D31FB8222B01A3000844F7 /* laoshanhang.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = laoshanhang.txt; sourceTree = "<group>"; };
 		B7D46F59220D30FA0025DE3C /* KCCompanyLogoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCompanyLogoViewController.swift; sourceTree = "<group>"; };
 		B7D46F5B220D31170025DE3C /* KCCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCurrencyViewController.swift; sourceTree = "<group>"; };
 		B7DB84D321C10A10005E148D /* KCInvoiceItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCInvoiceItemViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		B79792C2216C4CE700C1E826 = {
 			isa = PBXGroup;
 			children = (
+				B7D31FB8222B01A3000844F7 /* laoshanhang.txt */,
 				B782761C21EB9F8000D2A581 /* invoice.html */,
 				B782761B21EB9F7F00D2A581 /* last_item.html */,
 				B782761A21EB9F7F00D2A581 /* logo.jpg */,
@@ -151,6 +156,7 @@
 				B7BE5E8821EB868400167D5B /* KCPreviewViewController.swift */,
 				B7D46F59220D30FA0025DE3C /* KCCompanyLogoViewController.swift */,
 				B7D46F5B220D31170025DE3C /* KCCurrencyViewController.swift */,
+				B7D31FB6222A8DD3000844F7 /* KCQuickCommandViewController.swift */,
 			);
 			path = Invoice;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 				B7BE5E6821E9BDCA00167D5B /* icon-invoice.png in Resources */,
 				B7BE5E7221E9E5A400167D5B /* icon-product-30x30.png in Resources */,
 				B782761F21EB9F8000D2A581 /* last_item.html in Resources */,
+				B7D31FB9222B01A3000844F7 /* laoshanhang.txt in Resources */,
 				B782761D21EB9F8000D2A581 /* single_item.html in Resources */,
 				B782761E21EB9F8000D2A581 /* logo.jpg in Resources */,
 				B7687B152224539B00B63940 /* flower-logo-290x135.jpg in Resources */,
@@ -265,6 +272,7 @@
 				B7BE5E8721EB80E100167D5B /* KCCustomPrintPageRenderer.swift in Sources */,
 				B7D46F5C220D31170025DE3C /* KCCurrencyViewController.swift in Sources */,
 				B76384F5218DFF17007F8AD3 /* KCCompanyInfoViewController.swift in Sources */,
+				B7D31FB7222A8DD3000844F7 /* KCQuickCommandViewController.swift in Sources */,
 				B7D46F5A220D30FA0025DE3C /* KCCompanyLogoViewController.swift in Sources */,
 				B7BE5E8521EB793A00167D5B /* KCInvoiceComposer.swift in Sources */,
 				B7BE5E8921EB868400167D5B /* KCPreviewViewController.swift in Sources */,
@@ -416,13 +424,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 54828H5Z59;
+				DEVELOPMENT_TEAM = 2ZG82GP9NR;
 				INFOPLIST_FILE = Invoice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kanchoi.Invoice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "DOMS DEV";
+				PROVISIONING_PROFILE_SPECIFIER = kevin_dev_profile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -434,13 +442,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 54828H5Z59;
+				DEVELOPMENT_TEAM = 2ZG82GP9NR;
 				INFOPLIST_FILE = Invoice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kanchoi.Invoice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "DOMS DEV";
+				PROVISIONING_PROFILE_SPECIFIER = kevin_dev_profile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

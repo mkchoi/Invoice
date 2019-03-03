@@ -83,6 +83,13 @@ class KCDBUtility {
     var dropCompanyTable = "DROP TABLE company_table";
     var dropCurrencyTable = "DROP TABLE currency_table";
     
+    var deleteInvoiceTable = "DELETE FROM invoice_table";
+    var deleteInvoiceItemTable = "DELETE FROM invoice_item_table";
+    var deleteProductTable = "DELETE FROM product_table";
+    var deleteCustomerTable = "DELETE FROM customer_table";
+    var deleteCompanyTable = "DELETE FROM company_table";
+    var deleteCurrencyTable = "DELETE FROM currency_table";
+    
     init() {
         openDB();
         createDB();
@@ -209,6 +216,56 @@ class KCDBUtility {
             
             print("drop tables ok");
         }
+        
+        objc_sync_exit(self);
+        
+    }
+    
+    func resetDB() {
+        
+        objc_sync_enter(self);
+        
+        var errorMsg : CCharPointer?;
+        
+        if (sqlite3_exec(db, deleteInvoiceTable, nil, nil, &errorMsg) == SQLITE_OK
+            && sqlite3_exec(db, deleteInvoiceItemTable, nil, nil, &errorMsg) == SQLITE_OK
+            && sqlite3_exec(db, deleteProductTable, nil, nil, &errorMsg) == SQLITE_OK
+            && sqlite3_exec(db, deleteCustomerTable, nil, nil, &errorMsg) == SQLITE_OK
+            && sqlite3_exec(db, deleteCompanyTable, nil, nil, &errorMsg) == SQLITE_OK
+            && sqlite3_exec(db, deleteCurrencyTable, nil, nil, &errorMsg) == SQLITE_OK) {
+            
+            print("delete tables ok");
+        }
+        
+        objc_sync_exit(self);
+        
+    }
+    
+    func initLaoShanHang() {
+        
+        objc_sync_enter(self);
+        
+        var errorMsg : CCharPointer?;
+        
+        let pathToTxtFile = Bundle.main.path(forResource: "laoshanhang", ofType: "txt")
+        
+        //reading
+        do {
+            let sqlFile = try String(contentsOfFile: pathToTxtFile!, encoding: .utf8)
+            
+            let allSqlStr = sqlFile.components(separatedBy: .newlines)
+            
+            for sqlStr in allSqlStr {
+                if (sqlite3_exec(db, sqlStr, nil, nil, &errorMsg) == SQLITE_OK) {
+                    print("insert laoshanhang ok " + sqlStr);
+                }
+            }
+        }
+        catch {
+            print("exception")
+        }
+        
+       
         
         objc_sync_exit(self);
         
