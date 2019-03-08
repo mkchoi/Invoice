@@ -16,7 +16,7 @@ class KCDBUtility {
     var instance : KCDBUtility? = nil;
     var dbName : String = "invoice";
     var dbContent : String = "Initial DB";
-    var dbVersion = 9;
+    var dbVersion = 10;
     var db:OpaquePointer? = nil;
 
     var createDbVerTable = "CREATE TABLE IF NOT EXISTS dbver_table "
@@ -32,6 +32,7 @@ class KCDBUtility {
         + "billed_to_address TEXT, "
         + "invoice_number TEXT, "
         + "date_of_issue DATETIME, "
+        + "payment_method TEXT, "
         + "invoice_total REAL, "
         + "discount REAL, "
         + "create_time DATETIME)";

@@ -17,6 +17,8 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
     @IBOutlet weak var unitPrice : UITextField!
     @IBOutlet weak var qty : UITextField!
     @IBOutlet weak var amount : UITextField!
+    @IBOutlet weak var selItemCode: UIButton!
+    @IBOutlet weak var selItemDesc: UIButton!
     
     var selectedId : Int32 = 0
     var productArray : [String] = []
@@ -25,6 +27,8 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
     var productUnitPriceArray : [Double] = []
     
     let dbInstance = KCDBUtility()
+    let itemCodePickerView = UIPickerView()
+    let itemDescPickerView = UIPickerView()
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -147,6 +151,40 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
         
     }
     
+    @IBAction func selectItemCode(_ sender: Any) {
+        
+        if (selItemCode.titleLabel!.text == "選擇") {
+            if (productArray.count > 0) {
+                itemCode.inputView = itemCodePickerView
+            }
+            itemCode.becomeFirstResponder()
+            selItemCode!.setTitle("輸入", for: UIControlState.normal)
+        } else {
+            itemCode.inputView = nil
+            itemCode.reloadInputViews()
+            itemCode.becomeFirstResponder()
+            selItemCode!.setTitle("選擇", for: UIControlState.normal)
+        }
+        
+    }
+    
+    @IBAction func selectItemDesc(_ sender: Any) {
+        
+        if (selItemDesc.titleLabel!.text == "選擇") {
+            if (productDescArray.count > 0) {
+                itemDesc.inputView = itemDescPickerView
+            }
+            itemDesc.becomeFirstResponder()
+            selItemDesc!.setTitle("輸入", for: UIControlState.normal)
+        } else {
+            itemDesc.inputView = nil
+            itemDesc.reloadInputViews()
+            itemDesc.becomeFirstResponder()
+            selItemDesc!.setTitle("選擇", for: UIControlState.normal)
+        }
+        
+    }
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
         
         self.dismiss(animated: true)
@@ -179,22 +217,41 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
             }
         }
         
-        let itemCodePickerView = UIPickerView()
-        
         itemCodePickerView.tag = 1
         itemCodePickerView.delegate = self
         itemCodePickerView.dataSource = self
-        if (productArray.count > 0) {
-            itemCode.inputView = itemCodePickerView
-        }
         
-        let itemDescPickerView = UIPickerView()
         
         itemDescPickerView.tag = 2
         itemDescPickerView.delegate = self
         itemDescPickerView.dataSource = self
-        if (productDescArray.count > 0) {
-            itemDesc.inputView = itemDescPickerView
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: .UIKeyboardWillHide , object: nil)
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        print("Keyboard will hide!")
+        
+        if (itemCode.isFirstResponder) {
+            let queryProductSql = "select id, item_code, item_desc, item_unit, unit_price from product_table where item_code='" + itemCode.text! + "'"
+            print("query product_table")
+            
+            if let queryProductResult = dbInstance.querySQL(sql: queryProductSql) {
+                
+                for row in queryProductResult {
+                    if let num = row["id"] {
+                        print("id=\(num)")
+                        
+                        itemDesc.text = (row["item_desc"] as? String)!
+                        itemUnit.text = (row["item_unit"] as? String)!
+                        unitPrice.text = String(describing: (row["unit_price"] as? Double)!)
+                        
+                        break
+                    }
+                    
+                }
+            }
         }
     }
     

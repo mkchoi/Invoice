@@ -20,7 +20,7 @@ class InvoiceComposer: NSObject {
     
     //let dueDate = ""
     
-    let paymentMethod = "現金"
+    let paymentMethod = " "
     
     var logoImageURL = "logo.jpg"
     
@@ -34,7 +34,7 @@ class InvoiceComposer: NSObject {
     }
     
     
-    func renderInvoice(invoiceNumber: String, invoiceDate: String, senderInfo: String, recipientInfo: String, items: [[String: String]], discount: String, totalAmount: String, currency: String) -> String! {
+    func renderInvoice(invoiceNumber: String, invoiceDate: String, senderInfo: String, recipientInfo: String, items: [[String: String]], discount: String, totalAmount: String, currency: String, paymentMethod: String) -> String! {
         // Store the invoice number for future use.
         self.invoiceNumber = invoiceNumber
         
@@ -71,7 +71,7 @@ class InvoiceComposer: NSObject {
             HTMLContent = HTMLContent.replacingOccurrences(of: "#RECIPIENT_INFO#", with: recipientInfo.replacingOccurrences(of: "\n", with: "<br>"))
             
             // Payment method.
-            //HTMLContent = HTMLContent.replacingOccurrences(of: "#PAYMENT_METHOD#", with: paymentMethod)
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#PAYMENT_METHOD#", with: paymentMethod)
             
             // Discount.
             let formattedDiscount = currency + " \(discount)"

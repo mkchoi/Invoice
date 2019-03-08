@@ -19,6 +19,8 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var discount : UITextField!
     @IBOutlet weak var tableView : UITableView!
     @IBOutlet weak var deleteButton : UIButton!
+    @IBOutlet weak var selBilledTo : UIButton!
+    @IBOutlet weak var paymentMethod: UITextField!
     
     var selectedId : Int32 = 0
     var customerArray : [String] = []
@@ -33,6 +35,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
     var previewView : KCPreviewViewController?
     
     let dbInstance = KCDBUtility()
+    let billedToPickerView = UIPickerView()
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -116,10 +119,6 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             self.deleteButton?.setTitle("完成刪除", for: UIControlState.normal)
         }
     }
-    
-    @IBAction func printButtonTapped(_ sender: Any) {
-        
-    }
         
     @IBAction func saveButtonTapped(_ sender: Any) {
         
@@ -152,6 +151,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             updateSql += "billed_to_address='" + (billedToAddress.text)! + "', "
             updateSql += "invoice_number='" + (invoiceNumber.text)! + "', "
             updateSql += "date_of_issue='" + (dateOfIssue.text)! + "', "
+            updateSql += "payment_method='" + (paymentMethod.text)! + "', "
             updateSql += "invoice_total=" + (invoiceTotal.text)! + ", "
             updateSql += "discount=" + (discount.text)! + ", "
             updateSql += "create_time='" + util.getTodayStr() + "' "
@@ -163,9 +163,10 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             
         } else {
             var insertSql = "insert into invoice_table (billed_to, billed_to_address, "
-            insertSql += "invoice_number, date_of_issue, invoice_total, discount, create_time) values ('"
+            insertSql += "invoice_number, date_of_issue, payment_method, invoice_total, discount, create_time) values ('"
             insertSql += (billedTo.text)! + "', '" + (billedToAddress.text)! + "', '"
-            insertSql += (invoiceNumber.text)! + "', '" + (dateOfIssue.text)! + "', "
+            insertSql += (invoiceNumber.text)! + "', '" + (dateOfIssue.text)! + "', '"
+            insertSql += (paymentMethod.text)! + "', "
             insertSql += (invoiceTotal.text)! + ", " + (discount.text)! + ", '"
             insertSql += util.getTodayStr() + "')"
             
@@ -178,6 +179,25 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         }
         
         navigationController?.popViewController(animated: true)
+        
+    }
+    
+    @IBAction func selectBilledTo(_ sender: Any) {
+    
+        if (selBilledTo.titleLabel!.text == "選擇") {
+            if (customerArray.count > 0) {
+                billedTo.inputView = billedToPickerView
+            }
+            billedTo.becomeFirstResponder()
+            selBilledTo!.setTitle("輸入", for: UIControlState.normal)
+        } else {
+            billedTo.inputView = nil
+            billedTo.reloadInputViews()
+            billedTo.becomeFirstResponder()
+            selBilledTo!.setTitle("選擇", for: UIControlState.normal)
+        }
+        
+       
         
     }
     
@@ -248,7 +268,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         
         if (self.selectedId > 0) {
             
-            let querySql = "select id, billed_to, billed_to_address, invoice_number, date_of_issue, invoice_total, discount from invoice_table where id=\(self.selectedId)"
+            let querySql = "select id, billed_to, billed_to_address, invoice_number, date_of_issue, payment_method, invoice_total, discount from invoice_table where id=\(self.selectedId)"
             print("query invoice_table")
             
             if let queryResult = dbInstance.querySQL(sql: querySql) {
@@ -261,6 +281,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                         billedToAddress.text = (row["billed_to_address"] as? String)!
                         invoiceNumber.text = (row["invoice_number"] as? String)!
                         dateOfIssue.text = (row["date_of_issue"] as? String)!
+                        paymentMethod.text = (row["payment_method"] as? String)!
                         invoiceTotal.text = String(describing: (row["invoice_total"] as? Double)!)
                         discount.text = String(describing: (row["discount"] as? Double)!)
                         
@@ -344,14 +365,10 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             }
         }
         
-        let billedToPickerView = UIPickerView()
-        
         billedToPickerView.delegate = self
         billedToPickerView.dataSource = self
         
-        if (customerArray.count > 0) {
-            billedTo.inputView = billedToPickerView
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: .UIKeyboardWillHide , object: nil)
         
     }
     
@@ -368,6 +385,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                 var updateSql = "update invoice_table set "
                 updateSql += "billed_to='" + (self.billedTo.text)! + "', "
                 updateSql += "billed_to_address='" + (self.billedToAddress.text)! + "', "
+                updateSql += "payment_method='" + (self.paymentMethod.text)! + "', "
                 updateSql += "invoice_total=" + (self.invoiceTotal.text)! + ", "
                 updateSql += "discount=" + (self.discount.text)! + " "
                 updateSql += "where id=\(self.selectedId)"
@@ -383,6 +401,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                 
                 let invoiceNo = self.invoiceNumber.text!
                 let invoiceDate = self.dateOfIssue.text!
+                let payMethod = self.paymentMethod.text!
                 
                 var companyInfo = ""
                 
@@ -458,9 +477,32 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                 }
                 
                 
-                let invoice = ["invoiceNumber": invoiceNo, "invoiceDate": invoiceDate, "senderInfo": companyInfo, "recipientInfo": recipientInfo, "discount": invoiceDiscount, "totalAmount": totalAmount, "currency": currency, "items": items] as [String : AnyObject]
+                let invoice = ["invoiceNumber": invoiceNo, "invoiceDate": invoiceDate, "senderInfo": companyInfo, "recipientInfo": recipientInfo, "discount": invoiceDiscount, "totalAmount": totalAmount, "currency": currency, "paymentMethod": payMethod, "items": items] as [String : AnyObject]
                 
                 previewView?.invoiceInfo = invoice
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        print("Keyboard will hide!")
+        
+        if (billedTo.isFirstResponder) {
+            let queryCustomerSql = "select id, customer_name, address from customer_table where customer_name='" + billedTo.text! + "'"
+            print("query customer_table")
+            
+            if let queryCustomerResult = dbInstance.querySQL(sql: queryCustomerSql) {
+                
+                for row in queryCustomerResult {
+                    if let num = row["id"] {
+                        print("id=\(num)")
+                        
+                        billedToAddress.text = (row["address"] as? String)!
+                        
+                        break
+                    }
+                    
+                }
             }
         }
     }

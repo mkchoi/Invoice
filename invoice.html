@@ -69,7 +69,12 @@
             .invoice-box table tr.item.last td{
                 border-bottom:none;
             }
-            
+        
+            .invoice-box table tr.total td:nth-child(3){
+                border-top:2px solid #eee;
+                font-weight:bold;
+            }
+        
             .invoice-box table tr.total td:nth-child(4){
                 border-top:2px solid #eee;
                 font-weight:bold;
@@ -144,10 +149,10 @@
                     </tr>
                     -->
                     <tr class="heading">
-                        <td width="50%"> 貨品 </td>
+                        <td width="45%"> 貨品 </td>
                         <td width="15%" align="left"> 數量 </td>
                         <td width="15%" align="right"> 單價 </td>
-                        <td width="20%" align="right"> 金額 </td>
+                        <td width="25%" align="right"> 金額 </td>
                     </tr>
                     #ITEMS#
                     <tr class="total">
@@ -159,6 +164,7 @@
                         </td>
                         <td>
                             <br>
+                            付款方式: #PAYMENT_METHOD#
                         </td>
                         <td align="right">
                             折扣： #DISCOUNT# <br>
