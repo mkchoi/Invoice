@@ -370,6 +370,7 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: .UIKeyboardWillHide , object: nil)
         
+        paymentMethod.text = "月結"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -425,7 +426,10 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                 }
                 
                 
-                let recipientInfo = self.billedTo.text! + " (" + self.billedToAddress.text! + ")"
+                var recipientInfo = self.billedTo.text! + " (" + self.billedToAddress.text! + ")"
+                if (self.billedToAddress.text == "") {
+                    recipientInfo = self.billedTo.text!
+                }
                 let invoiceDiscount = self.discount.text!
                 
                 let d = Double(self.discount.text!) ?? 0
@@ -447,7 +451,10 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
                             
                             let itemDesc = (row["item_desc"] as? String)!
                             let itemUnit = (row["item_unit"] as? String)!
-                            let unitPrice = String(describing: (row["unit_price"] as? Double)!)
+                            var unitPrice = ""
+                            if let dUnitPrice = row["unit_price"] as? Double {
+                                unitPrice = String(describing: dUnitPrice)
+                            }
                             let qty = String(describing: (row["qty"] as? Double)!)
                             let amount = String(describing: (row["amount"] as? Double)!)
                             

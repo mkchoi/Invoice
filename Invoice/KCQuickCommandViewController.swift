@@ -23,6 +23,9 @@ class KCQuickCommandViewController : UIViewController {
         } else if (command.text == "laoshanhang") {
             dbInstance.initLaoShanHang()
             
+        } else if (command.text == "demo") {
+            dbInstance.initDemo()
+            
         }
         
         navigationController?.popViewController(animated: true)

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B741FAE62171DA22009FDE38 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B741FAE52171DA00009FDE38 /* libsqlite3.tbd */; };
 		B741FAE92171DD0D009FDE38 /* KCDBUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741FAE82171DD0D009FDE38 /* KCDBUtility.swift */; };
+		B74FB38A223961BB00C893D6 /* demo.txt in Resources */ = {isa = PBXBuildFile; fileRef = B74FB389223961BA00C893D6 /* demo.txt */; };
 		B76384F5218DFF17007F8AD3 /* KCCompanyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76384F4218DFF17007F8AD3 /* KCCompanyInfoViewController.swift */; };
 		B76384F7219ABC6D007F8AD3 /* KCCustomerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76384F6219ABC6D007F8AD3 /* KCCustomerInfoViewController.swift */; };
 		B7687B152224539B00B63940 /* flower-logo-290x135.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7687B142224539A00B63940 /* flower-logo-290x135.jpg */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		B741FAE52171DA00009FDE38 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B741FAE82171DD0D009FDE38 /* KCDBUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCDBUtility.swift; sourceTree = "<group>"; };
+		B74FB389223961BA00C893D6 /* demo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = demo.txt; sourceTree = "<group>"; };
 		B76384F4218DFF17007F8AD3 /* KCCompanyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCompanyInfoViewController.swift; sourceTree = "<group>"; };
 		B76384F6219ABC6D007F8AD3 /* KCCustomerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCCustomerInfoViewController.swift; sourceTree = "<group>"; };
 		B7687B142224539A00B63940 /* flower-logo-290x135.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "flower-logo-290x135.jpg"; sourceTree = "<group>"; };
@@ -114,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				B7D31FB8222B01A3000844F7 /* laoshanhang.txt */,
-				B782761C21EB9F8000D2A581 /* invoice.html */,
+				B74FB389223961BA00C893D6 /* demo.txt */,
 				B782761B21EB9F7F00D2A581 /* last_item.html */,
 				B782761A21EB9F7F00D2A581 /* logo.jpg */,
 				B782761921EB9F7E00D2A581 /* single_item.html */,
@@ -138,6 +140,7 @@
 				B7BE5E6421E9BD8C00167D5B /* img */,
 				B79792CE216C4CE700C1E826 /* AppDelegate.swift */,
 				B79792D4216C4CE700C1E826 /* Main.storyboard */,
+				B782761C21EB9F8000D2A581 /* invoice.html */,
 				B79792D7216C4CE700C1E826 /* Assets.xcassets */,
 				B79792D9216C4CE700C1E826 /* LaunchScreen.storyboard */,
 				B79792DC216C4CE700C1E826 /* Info.plist */,
@@ -252,6 +255,7 @@
 				B7BE5E6821E9BDCA00167D5B /* icon-invoice.png in Resources */,
 				B7BE5E7221E9E5A400167D5B /* icon-product-30x30.png in Resources */,
 				B782761F21EB9F8000D2A581 /* last_item.html in Resources */,
+				B74FB38A223961BB00C893D6 /* demo.txt in Resources */,
 				B7D31FB9222B01A3000844F7 /* laoshanhang.txt in Resources */,
 				B782761D21EB9F8000D2A581 /* single_item.html in Resources */,
 				B782761E21EB9F8000D2A581 /* logo.jpg in Resources */,
@@ -428,7 +432,7 @@
 				INFOPLIST_FILE = Invoice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kanchoi.Invoice;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.no-ip.kevinchoi.Invoice";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = kevin_dev_profile;
 				SWIFT_VERSION = 4.0;
@@ -446,7 +450,7 @@
 				INFOPLIST_FILE = Invoice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kanchoi.Invoice;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.no-ip.kevinchoi.Invoice";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = kevin_dev_profile;
 				SWIFT_VERSION = 4.0;

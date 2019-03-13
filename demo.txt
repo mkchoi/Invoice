@@ -1,0 +1,10 @@
+delete from currency_table
+insert into currency_table (currency_unit, create_time) values ('$', CURRENT_TIMESTAMP)
+delete from company_table
+insert into company_table (company_name, address, tel, email, create_time) values ('ABC Company', 'Mongkok', '12345678', 'abc@test.com', CURRENT_TIMESTAMP)
+delete from customer_table
+insert into customer_table (customer_name, address, create_time) values ('CUSTOMER 1', 'Causeway Bay', CURRENT_TIMESTAMP)
+insert into customer_table (customer_name, address, create_time) values ('CUSTOMER 2', 'TST', CURRENT_TIMESTAMP)
+delete from product_table
+insert into product_table (item_code, item_desc, item_unit, unit_price, create_time) values ('0001', 'IPHONE CASE', 'PC', '120', CURRENT_TIMESTAMP)
+insert into product_table (item_code, item_desc, item_unit, unit_price, create_time) values ('0002', 'KEYBOARD', 'PC', '150', CURRENT_TIMESTAMP)

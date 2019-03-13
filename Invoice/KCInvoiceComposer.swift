@@ -101,7 +101,11 @@ class InvoiceComposer: NSObject {
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_DESC#", with: items[i]["item"]!)
                 
                 let formattedUnitPrice = currency + " \(items[i]["unitPrice"]!)"
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#UNIT_PRICE#", with: formattedUnitPrice)
+                if (items[i]["unitPrice"] == "") {
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#UNIT_PRICE#", with: "")
+                } else {
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#UNIT_PRICE#", with: formattedUnitPrice)
+                }
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#QTY#", with: items[i]["qty"]!)
                 

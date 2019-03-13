@@ -18,6 +18,7 @@ class KCDBUtility {
     var dbContent : String = "Initial DB";
     var dbVersion = 10;
     var db:OpaquePointer? = nil;
+    var appVersion = "1.0"
 
     var createDbVerTable = "CREATE TABLE IF NOT EXISTS dbver_table "
         + "(id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -267,6 +268,36 @@ class KCDBUtility {
         }
         
        
+        
+        objc_sync_exit(self);
+        
+    }
+    
+    func initDemo() {
+        
+        objc_sync_enter(self);
+        
+        var errorMsg : CCharPointer?;
+        
+        let pathToTxtFile = Bundle.main.path(forResource: "demo", ofType: "txt")
+        
+        //reading
+        do {
+            let sqlFile = try String(contentsOfFile: pathToTxtFile!, encoding: .utf8)
+            
+            let allSqlStr = sqlFile.components(separatedBy: .newlines)
+            
+            for sqlStr in allSqlStr {
+                if (sqlite3_exec(db, sqlStr, nil, nil, &errorMsg) == SQLITE_OK) {
+                    print("insert demo ok " + sqlStr);
+                }
+            }
+        }
+        catch {
+            print("exception")
+        }
+        
+        
         
         objc_sync_exit(self);
         
