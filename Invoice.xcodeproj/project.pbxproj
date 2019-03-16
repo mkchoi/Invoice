@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7109C3D223D524B00C7E461 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7109C3C223D524B00C7E461 /* GameKit.framework */; };
+		B7109C3F223D525C00C7E461 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7109C3E223D525C00C7E461 /* StoreKit.framework */; };
 		B741FAE62171DA22009FDE38 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B741FAE52171DA00009FDE38 /* libsqlite3.tbd */; };
 		B741FAE92171DD0D009FDE38 /* KCDBUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741FAE82171DD0D009FDE38 /* KCDBUtility.swift */; };
 		B74FB38A223961BB00C893D6 /* demo.txt in Resources */ = {isa = PBXBuildFile; fileRef = B74FB389223961BA00C893D6 /* demo.txt */; };
@@ -35,7 +37,6 @@
 		B7BE5E7021E9E59600167D5B /* icon-customer-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E6F21E9E59600167D5B /* icon-customer-30x30.png */; };
 		B7BE5E7221E9E5A400167D5B /* icon-product-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E7121E9E5A300167D5B /* icon-product-30x30.png */; };
 		B7BE5E7421E9E5AD00167D5B /* icon-setting-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E7321E9E5AD00167D5B /* icon-setting-30x30.png */; };
-		B7BE5E7621EA199200167D5B /* icon-app.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E7521EA199200167D5B /* icon-app.png */; };
 		B7BE5E7821EA1A0500167D5B /* icon-app-76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E7721EA1A0500167D5B /* icon-app-76x76.png */; };
 		B7BE5E7A21EA1A6300167D5B /* icon-app-167x167.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE5E7921EA1A6300167D5B /* icon-app-167x167.png */; };
 		B7BE5E8521EB793A00167D5B /* KCInvoiceComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BE5E8421EB793A00167D5B /* KCInvoiceComposer.swift */; };
@@ -49,6 +50,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B7109C3C223D524B00C7E461 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		B7109C3E223D525C00C7E461 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B7109C40223D54E600C7E461 /* InvoiceGen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InvoiceGen.entitlements; sourceTree = "<group>"; };
 		B741FAE52171DA00009FDE38 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B741FAE82171DD0D009FDE38 /* KCDBUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCDBUtility.swift; sourceTree = "<group>"; };
 		B74FB389223961BA00C893D6 /* demo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = demo.txt; sourceTree = "<group>"; };
@@ -63,7 +67,7 @@
 		B782761A21EB9F7F00D2A581 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		B782761B21EB9F7F00D2A581 /* last_item.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = last_item.html; sourceTree = "<group>"; };
 		B782761C21EB9F8000D2A581 /* invoice.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = invoice.html; sourceTree = "<group>"; };
-		B79792CB216C4CE700C1E826 /* Invoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B79792CB216C4CE700C1E826 /* InvoiceGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvoiceGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79792CE216C4CE700C1E826 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B79792D5216C4CE700C1E826 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B79792D7216C4CE700C1E826 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,7 +83,6 @@
 		B7BE5E6F21E9E59600167D5B /* icon-customer-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-customer-30x30.png"; sourceTree = "<group>"; };
 		B7BE5E7121E9E5A300167D5B /* icon-product-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-product-30x30.png"; sourceTree = "<group>"; };
 		B7BE5E7321E9E5AD00167D5B /* icon-setting-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-setting-30x30.png"; sourceTree = "<group>"; };
-		B7BE5E7521EA199200167D5B /* icon-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-app.png"; sourceTree = "<group>"; };
 		B7BE5E7721EA1A0500167D5B /* icon-app-76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-app-76x76.png"; sourceTree = "<group>"; };
 		B7BE5E7921EA1A6300167D5B /* icon-app-167x167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-app-167x167.png"; sourceTree = "<group>"; };
 		B7BE5E8421EB793A00167D5B /* KCInvoiceComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCInvoiceComposer.swift; sourceTree = "<group>"; };
@@ -97,7 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7109C3F223D525C00C7E461 /* StoreKit.framework in Frameworks */,
 				B741FAE62171DA22009FDE38 /* libsqlite3.tbd in Frameworks */,
+				B7109C3D223D524B00C7E461 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +112,8 @@
 		B741FAE42171D9FF009FDE38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B7109C3E223D525C00C7E461 /* StoreKit.framework */,
+				B7109C3C223D524B00C7E461 /* GameKit.framework */,
 				B741FAE52171DA00009FDE38 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
@@ -129,7 +136,7 @@
 		B79792CC216C4CE700C1E826 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B79792CB216C4CE700C1E826 /* Invoice.app */,
+				B79792CB216C4CE700C1E826 /* InvoiceGen.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +144,7 @@
 		B79792CD216C4CE700C1E826 /* Invoice */ = {
 			isa = PBXGroup;
 			children = (
+				B7109C40223D54E600C7E461 /* InvoiceGen.entitlements */,
 				B7BE5E6421E9BD8C00167D5B /* img */,
 				B79792CE216C4CE700C1E826 /* AppDelegate.swift */,
 				B79792D4216C4CE700C1E826 /* Main.storyboard */,
@@ -168,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				B7687B142224539A00B63940 /* flower-logo-290x135.jpg */,
-				B7BE5E7521EA199200167D5B /* icon-app.png */,
 				B7BE5E7721EA1A0500167D5B /* icon-app-76x76.png */,
 				B7BE5E7921EA1A6300167D5B /* icon-app-167x167.png */,
 				B7BE5E6521E9BDB900167D5B /* icon-customer.png */,
@@ -200,7 +207,7 @@
 			);
 			name = Invoice;
 			productName = Invoice;
-			productReference = B79792CB216C4CE700C1E826 /* Invoice.app */;
+			productReference = B79792CB216C4CE700C1E826 /* InvoiceGen.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -216,6 +223,17 @@
 					B79792CA216C4CE700C1E826 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.GameCenter.iOS = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -244,7 +262,6 @@
 			files = (
 				B7BE5E6621E9BDBA00167D5B /* icon-customer.png in Resources */,
 				B7BE5E7421E9E5AD00167D5B /* icon-setting-30x30.png in Resources */,
-				B7BE5E7621EA199200167D5B /* icon-app.png in Resources */,
 				B7BE5E7021E9E59600167D5B /* icon-customer-30x30.png in Resources */,
 				B7BE5E6A21E9BDDA00167D5B /* icon-setting.png in Resources */,
 				B7BE5E7A21EA1A6300167D5B /* icon-app-167x167.png in Resources */,
@@ -363,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -414,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -426,15 +443,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = Invoice/InvoiceGen.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2ZG82GP9NR;
 				INFOPLIST_FILE = Invoice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.no-ip.kevinchoi.Invoice";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = kevin_dev_profile;
+				PRODUCT_NAME = InvoiceGen;
+				PROVISIONING_PROFILE_SPECIFIER = kevin_prod_profile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -444,15 +462,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = Invoice/InvoiceGen.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2ZG82GP9NR;
 				INFOPLIST_FILE = Invoice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.no-ip.kevinchoi.Invoice";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = kevin_dev_profile;
+				PRODUCT_NAME = InvoiceGen;
+				PROVISIONING_PROFILE_SPECIFIER = kevin_prod_profile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

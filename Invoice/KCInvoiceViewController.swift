@@ -335,6 +335,10 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
             }
             
         }
+        
+        if (paymentMethod.text == "") {
+            paymentMethod.text = "月結"
+        }
     }
     
     override func viewDidLoad() {
@@ -370,7 +374,6 @@ class KCInvoiceViewController : UIViewController, UIPickerViewDataSource, UIPick
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: .UIKeyboardWillHide , object: nil)
         
-        paymentMethod.text = "月結"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
