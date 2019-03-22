@@ -24,6 +24,20 @@ class KCCustomerInfoViewController : UIViewController {
         
         let util = KCUtility()
         
+        if let customerNameText = self.customerName.text, customerNameText.isEmpty
+        {
+            // create the alert
+            let alert = UIAlertController(title: "錯誤", message: "請輸入客戶名稱", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "好", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         var hasData = false
         var id : String = ""
         

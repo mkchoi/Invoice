@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B7109C3D223D524B00C7E461 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7109C3C223D524B00C7E461 /* GameKit.framework */; };
-		B7109C3F223D525C00C7E461 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7109C3E223D525C00C7E461 /* StoreKit.framework */; };
+		B7109C4622454C4B00C7E461 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7109C4522454C4B00C7E461 /* StoreKit.framework */; };
+		B7109C4822454C5400C7E461 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7109C4722454C5400C7E461 /* GameKit.framework */; };
 		B741FAE62171DA22009FDE38 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B741FAE52171DA00009FDE38 /* libsqlite3.tbd */; };
 		B741FAE92171DD0D009FDE38 /* KCDBUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741FAE82171DD0D009FDE38 /* KCDBUtility.swift */; };
 		B74FB38A223961BB00C893D6 /* demo.txt in Resources */ = {isa = PBXBuildFile; fileRef = B74FB389223961BA00C893D6 /* demo.txt */; };
@@ -50,9 +50,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B7109C3C223D524B00C7E461 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		B7109C3E223D525C00C7E461 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B7109C40223D54E600C7E461 /* InvoiceGen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InvoiceGen.entitlements; sourceTree = "<group>"; };
+		B7109C4522454C4B00C7E461 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B7109C4722454C5400C7E461 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		B741FAE52171DA00009FDE38 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B741FAE82171DD0D009FDE38 /* KCDBUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCDBUtility.swift; sourceTree = "<group>"; };
 		B74FB389223961BA00C893D6 /* demo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = demo.txt; sourceTree = "<group>"; };
@@ -100,9 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7109C3F223D525C00C7E461 /* StoreKit.framework in Frameworks */,
+				B7109C4822454C5400C7E461 /* GameKit.framework in Frameworks */,
 				B741FAE62171DA22009FDE38 /* libsqlite3.tbd in Frameworks */,
-				B7109C3D223D524B00C7E461 /* GameKit.framework in Frameworks */,
+				B7109C4622454C4B00C7E461 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,8 +112,8 @@
 		B741FAE42171D9FF009FDE38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B7109C3E223D525C00C7E461 /* StoreKit.framework */,
-				B7109C3C223D524B00C7E461 /* GameKit.framework */,
+				B7109C4722454C5400C7E461 /* GameKit.framework */,
+				B7109C4522454C4B00C7E461 /* StoreKit.framework */,
 				B741FAE52171DA00009FDE38 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
@@ -444,7 +444,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Invoice/InvoiceGen.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2ZG82GP9NR;
 				INFOPLIST_FILE = Invoice/Info.plist;
@@ -452,7 +452,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.no-ip.kevinchoi.Invoice";
 				PRODUCT_NAME = InvoiceGen;
-				PROVISIONING_PROFILE_SPECIFIER = kevin_prod_profile;
+				PROVISIONING_PROFILE_SPECIFIER = invoicegen_dev_profile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -463,7 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Invoice/InvoiceGen.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2ZG82GP9NR;
 				INFOPLIST_FILE = Invoice/Info.plist;
@@ -471,7 +471,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.no-ip.kevinchoi.Invoice";
 				PRODUCT_NAME = InvoiceGen;
-				PROVISIONING_PROFILE_SPECIFIER = kevin_prod_profile;
+				PROVISIONING_PROFILE_SPECIFIER = invoicegen_dev_profile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

@@ -26,6 +26,73 @@ class KCProductInfoViewController : UIViewController {
         
         let util = KCUtility()
         
+        if let productCodeText = self.productCode.text, productCodeText.isEmpty
+        {
+            // create the alert
+            let alert = UIAlertController(title: "錯誤", message: "請輸入貨品代號", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "好", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
+        if let productNameText = self.productName.text, productNameText.isEmpty
+        {
+            // create the alert
+            let alert = UIAlertController(title: "錯誤", message: "請輸入貨品名稱", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "好", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
+        if let unitPriceText = self.unitPrice.text, unitPriceText.isEmpty
+        {
+            // create the alert
+            let alert = UIAlertController(title: "錯誤", message: "請輸入單價", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "好", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
+        var valid = true
+        if let doubleValue = Double(self.unitPrice.text!)
+        {
+            if doubleValue >= 0 {
+                
+            } else {
+                valid = false
+            }
+        } else {
+            valid = false
+        }
+        
+        if (!valid) {
+            // create the alert
+            let alert = UIAlertController(title: "錯誤", message: "單價不正確", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "好", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         var hasData = false
         var id : String = ""
         
