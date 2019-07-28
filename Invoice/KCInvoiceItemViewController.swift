@@ -112,7 +112,7 @@ class KCInvoiceItemViewController : UIViewController, UIPickerViewDataSource, UI
         if let itemUnitPriceText = self.unitPrice.text, !itemUnitPriceText.isEmpty
         {
             let unitPriceDouble = Double(self.unitPrice.text!) ?? 0
-            let qtyDouble = Double(self.qty.text!) ?? 0
+            let qtyDouble = Double(self.qty.text!.trimmingCharacters(in: .whitespacesAndNewlines)) ?? 0
             let amountDouble = unitPriceDouble * qtyDouble
             
             self.amount.text = String(describing: amountDouble)
